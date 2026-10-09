@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-09T00:00:00Z",
+  "title": "Design System: Engrama",
+  "extensions": {
+    "colorMeta": {
+      "papel-melocoton": { "role": "neutral", "displayName": "Papel Melocotón", "canonical": "oklch(0.9 0.04 60)", "hexApprox": "#f3d8c4", "tonalRamp": ["oklch(0.15 0.04 60)", "oklch(0.27 0.04 60)", "oklch(0.39 0.04 60)", "oklch(0.51 0.04 60)", "oklch(0.63 0.04 60)", "oklch(0.75 0.04 60)", "oklch(0.86 0.04 60)", "oklch(0.95 0.04 60)"] },
+      "papel-claro": { "role": "neutral", "displayName": "Papel Claro", "canonical": "oklch(0.93 0.03 60)", "hexApprox": "#f8e4d4", "tonalRamp": ["oklch(0.15 0.03 60)", "oklch(0.27 0.03 60)", "oklch(0.39 0.03 60)", "oklch(0.51 0.03 60)", "oklch(0.63 0.03 60)", "oklch(0.75 0.03 60)", "oklch(0.86 0.03 60)", "oklch(0.95 0.03 60)"] },
+      "papel-sombra": { "role": "neutral", "displayName": "Papel Sombra", "canonical": "oklch(0.86 0.045 55)", "hexApprox": "#e9cab6", "tonalRamp": ["oklch(0.15 0.045 55)", "oklch(0.27 0.045 55)", "oklch(0.39 0.045 55)", "oklch(0.51 0.045 55)", "oklch(0.63 0.045 55)", "oklch(0.75 0.045 55)", "oklch(0.86 0.045 55)", "oklch(0.95 0.045 55)"] },
+      "tinta-calida": { "role": "neutral", "displayName": "Tinta Cálida", "canonical": "oklch(0.25 0.02 30)", "hexApprox": "#2b1e1c", "tonalRamp": ["oklch(0.15 0.02 30)", "oklch(0.25 0.02 30)", "oklch(0.39 0.02 30)", "oklch(0.51 0.02 30)", "oklch(0.63 0.02 30)", "oklch(0.75 0.02 30)", "oklch(0.86 0.02 30)", "oklch(0.95 0.02 30)"] },
+      "tinta-suave": { "role": "neutral", "displayName": "Tinta Suave", "canonical": "oklch(0.4 0.03 35)", "hexApprox": "#57423d", "tonalRamp": ["oklch(0.15 0.03 35)", "oklch(0.27 0.03 35)", "oklch(0.4 0.03 35)", "oklch(0.51 0.03 35)", "oklch(0.63 0.03 35)", "oklch(0.75 0.03 35)", "oklch(0.86 0.03 35)", "oklch(0.95 0.03 35)"] },
+      "filete": { "role": "neutral", "displayName": "Filete", "canonical": "oklch(0.25 0.02 30 / 0.22)" },
+      "coral-amapola": { "role": "primary", "displayName": "Coral Amapola", "canonical": "oklch(0.6 0.15 30)", "hexApprox": "#ca5747", "tonalRamp": ["oklch(0.15 0.06 30)", "oklch(0.27 0.1 30)", "oklch(0.39 0.13 30)", "oklch(0.51 0.15 30)", "oklch(0.6 0.15 30)", "oklch(0.72 0.11 30)", "oklch(0.85 0.06 30)", "oklch(0.95 0.02 30)"] },
+      "coral-texto": { "role": "neutral", "displayName": "Papel sobre Coral", "canonical": "oklch(0.98 0.01 60)", "hexApprox": "#fef7f2" },
+      "noche": { "role": "neutral", "displayName": "Noche", "canonical": "oklch(0.17 0.008 40)", "hexApprox": "#130e0d", "tonalRamp": ["oklch(0.12 0.008 40)", "oklch(0.17 0.008 40)", "oklch(0.27 0.008 40)", "oklch(0.39 0.008 40)", "oklch(0.51 0.008 40)", "oklch(0.63 0.008 40)", "oklch(0.8 0.008 40)", "oklch(0.95 0.008 40)"] },
+      "papel-en-la-noche": { "role": "neutral", "displayName": "Papel en la Noche", "canonical": "oklch(0.92 0.025 60)", "hexApprox": "#f2e1d4" }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Titular de portada, centrado; 3.25rem en móvil." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de sección; 3.25rem en móvil. Variante gigante nocturna 5.5rem/11rem, 0.8, -0.03em." },
+      "lead": { "displayName": "Lead", "purpose": "Párrafo de entrada en serif con frases clave en cursiva; 2rem en móvil." },
+      "title": { "displayName": "Pie de foto", "purpose": "Serif en mayúsculas bajo cada plancha y en los nombres de las fichas." },
+      "body": { "displayName": "Body", "purpose": "Texto de lectura, 40 a 60ch, normalmente en tinta suave." },
+      "body-small": { "displayName": "Body small", "purpose": "Notas al margen, descripciones de servicio, pie." },
+      "label": { "displayName": "Rótulo", "purpose": "Metadatos impresos en mayúsculas: folio, credenciales, autoría, acciones secundarias. Nunca antetítulo." }
+    },
+    "shadows": [],
+    "motion": [
+      { "name": "ease-out-expo", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Transiciones de color de las píldoras (300ms) y crecimiento de las fotos (700ms)." },
+      { "name": "recall", "value": "filter: blur(4px) saturate(0.7) brightness(1.05); scale: 1.04 -> blur(0); scale: 1; animation-timeline: view(); animation-range: cover 0% cover 40%", "purpose": "La foto de portada se enfoca con el scroll. Solo con prefers-reduced-motion: no-preference." },
+      { "name": "plate-zoom", "value": "transform: scale(1.03) 700ms ease-out-expo", "purpose": "Hover de la foto dentro de su plancha." }
+    ],
+    "focus": { "value": "outline: 2px solid var(--accent); outline-offset: 3px", "purpose": "Anillo de foco global en coral." },
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Píldora sólida",
+      "kind": "button",
+      "refersTo": "pill-solid",
+      "description": "Acción principal de WhatsApp: tinta con texto de papel.",
+      "html": "<a class=\"ds-pill ds-pill-solid\" href=\"#\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"currentColor\" aria-hidden=\"true\"><path d=\"M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z\"/></svg>Escríbenos por WhatsApp</a>",
+      "css": ".ds-pill { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 3rem; padding-inline: 1.5rem; border-radius: 999px; border: 1px solid currentColor; font-family: 'Hanken Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 0.9375rem; text-decoration: none; transition: background-color 300ms cubic-bezier(0.16,1,0.3,1), color 300ms cubic-bezier(0.16,1,0.3,1); } .ds-pill-solid { background: oklch(0.25 0.02 30); color: oklch(0.9 0.04 60); border-color: oklch(0.25 0.02 30); } .ds-pill:focus-visible { outline: 2px solid oklch(0.6 0.15 30); outline-offset: 3px; }"
+    },
+    {
+      "name": "Píldora de línea",
+      "kind": "button",
+      "refersTo": "pill-line",
+      "description": "Acción secundaria (llamar, cabecera): borde fino que se rellena de tinta.",
+      "html": "<a class=\"ds-pill-l\" href=\"#\">Llamar</a>",
+      "css": ".ds-pill-l { display: inline-flex; align-items: center; justify-content: center; gap: 0.5rem; min-height: 3rem; padding-inline: 1.5rem; border-radius: 999px; border: 1px solid oklch(0.25 0.02 30); color: oklch(0.25 0.02 30); background: transparent; font-family: 'Hanken Grotesk', system-ui, sans-serif; font-weight: 600; font-size: 0.9375rem; text-decoration: none; transition: background-color 300ms cubic-bezier(0.16,1,0.3,1), color 300ms cubic-bezier(0.16,1,0.3,1); } .ds-pill-l:hover { background: oklch(0.25 0.02 30); color: oklch(0.9 0.04 60); } .ds-pill-l:focus-visible { outline: 2px solid oklch(0.6 0.15 30); outline-offset: 3px; }"
+    },
+    {
+      "name": "Cabecera",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Logotipo en cursiva, folio en rótulo, anclas y píldora compacta.",
+      "html": "<header class=\"ds-mast\"><span class=\"ds-mast-logo\">engrama</span><span class=\"ds-mast-folio\">Vol. I · Fotografía terapéutica</span><nav class=\"ds-mast-nav\"><a href=\"#\">Qué es</a><a href=\"#\">Servicios</a><a href=\"#\">Nosotras</a></nav></header>",
+      "css": ".ds-mast { display: flex; align-items: baseline; gap: 0.75rem; padding: 20px 40px; background: oklch(0.9 0.04 60); color: oklch(0.25 0.02 30); } .ds-mast-logo { font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 1.5rem; } .ds-mast-folio { font-family: 'Hanken Grotesk', sans-serif; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(0.4 0.03 35); } .ds-mast-nav { margin-left: auto; display: flex; gap: 2rem; font-family: 'Hanken Grotesk', sans-serif; font-size: 0.875rem; } .ds-mast-nav a { color: inherit; text-decoration: none; } .ds-mast-nav a:hover { text-decoration: underline; text-underline-offset: 0.2em; } .ds-mast-nav a:focus-visible { outline: 2px solid oklch(0.6 0.15 30); outline-offset: 3px; }"
+    },
+    {
+      "name": "Plancha con pie de foto",
+      "kind": "card",
+      "refersTo": "plancha-foto",
+      "description": "Foto 4:5 en plancha de 3px sobre noche, con pie en serif mayúscula, subtítulo en cursiva y enlace en rótulo.",
+      "html": "<article class=\"ds-plate\"><div class=\"ds-plate-img\"><div></div></div><h3 class=\"ds-plate-cap\">Sesiones individuales</h3><p class=\"ds-plate-lead\">Una cámara, una psicóloga y tú.</p><a class=\"ds-plate-link\" href=\"#\">Preguntar por WhatsApp</a></article>",
+      "css": ".ds-plate { max-width: 280px; color: oklch(0.25 0.02 30); } .ds-plate-img { aspect-ratio: 4/5; border-radius: 3px; overflow: hidden; background: oklch(0.17 0.008 40); } .ds-plate-img div { width: 100%; height: 100%; background: oklch(0.27 0.008 40); transition: transform 700ms cubic-bezier(0.16,1,0.3,1); } .ds-plate-img:hover div { transform: scale(1.03); } .ds-plate-cap { margin: 1.25rem 0 0; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 1.75rem; line-height: 1; letter-spacing: 0.01em; text-transform: uppercase; } .ds-plate-lead { margin: 0.5rem 0 0; font-family: 'Instrument Serif', Georgia, serif; font-style: italic; font-size: 1.25rem; } .ds-plate-link { display: inline-block; margin-top: 1.25rem; font-family: 'Hanken Grotesk', sans-serif; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: inherit; text-decoration: underline; text-decoration-thickness: 1px; text-underline-offset: 4px; } .ds-plate-link:focus-visible { outline: 2px solid oklch(0.6 0.15 30); outline-offset: 3px; }"
+    },
+    {
+      "name": "Pliego nocturno",
+      "kind": "custom",
+      "refersTo": "pliego-noche",
+      "description": "Sección a sangre en noche con titular gigante y fichas con filete superior.",
+      "html": "<section class=\"ds-night\"><h2>Noso<em>tras</em></h2><div class=\"ds-night-card\"><p class=\"ds-night-name\">Nombre pendiente</p><p class=\"ds-night-meta\">Psicóloga colegiada · Nº pendiente</p></div></section>",
+      "css": ".ds-night { background: oklch(0.17 0.008 40); color: oklch(0.92 0.025 60); padding: 96px 20px; overflow: hidden; } .ds-night h2 { margin: 0 0 0 -4px; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 5.5rem; line-height: 0.8; letter-spacing: -0.03em; } .ds-night h2 em { font-style: italic; } .ds-night-card { margin-top: 56px; border-top: 1px solid oklch(0.92 0.025 60 / 0.25); padding-top: 1.25rem; } .ds-night-name { margin: 0; font-family: 'Instrument Serif', Georgia, serif; font-size: 1.5rem; line-height: 1; text-transform: uppercase; } .ds-night-meta { margin: 0.75rem 0 0; font-family: 'Hanken Grotesk', sans-serif; font-size: 0.6875rem; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: oklch(0.92 0.025 60 / 0.7); }"
+    },
+    {
+      "name": "Titular con cursiva",
+      "kind": "custom",
+      "refersTo": "display",
+      "description": "Instrument Serif 400 con la palabra emocional en cursiva.",
+      "html": "<h1 class=\"ds-display\">Lo que sientes <em>deja</em> huella. Aprende a <em>mirarla</em>.</h1>",
+      "css": ".ds-display { margin: 0; max-width: 14ch; font-family: 'Instrument Serif', Georgia, serif; font-weight: 400; font-size: 3.25rem; line-height: 0.95; letter-spacing: -0.015em; text-wrap: balance; color: oklch(0.25 0.02 30); } .ds-display em { font-style: italic; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "La amapola, número 1",
+    "overview": "Engrama se maqueta como el primer número de una revista de arte sobre la memoria emocional. Una sola imagen macro, ampliada hasta volverse paisaje, carga la emoción; el texto la acompaña con titulares de serif fina y una tipografía de lectura discreta. El papel es melocotón mate, la tinta es marrón cálido casi negro y el único color saturado de la página es el coral de la amapola.\n\nLa densidad es baja y editorial: secciones con mucho aire (96px en móvil, 144px en escritorio), rejilla de 12 columnas que se usa de forma asimétrica (columna estrecha de nota al margen y bloque ancho desplazado), fotos desfasadas en vertical como en un pliego. Una sección entera pasa a casi negro para cambiar de registro, como una doble página nocturna. No hay sombras, degradados decorativos ni tarjetas: la profundidad la dan el tamaño de la foto, el recorte y el cambio de papel a noche.\n\nEl movimiento es uno y con sentido: la foto principal pasa de desenfocada a enfocada al entrar en pantalla, como un recuerdo que vuelve. Todo lo demás son transiciones de color cortas.",
+    "keyCharacteristics": [
+      "Papel melocotón, tinta cálida y un único acento coral que vive sobre todo en la fotografía.",
+      "Titulares en Instrument Serif regular con palabras clave en cursiva; texto en Hanken Grotesk.",
+      "Pies de foto en serif y mayúsculas; rótulos diminutos y muy espaciados para metadatos.",
+      "Botones en píldora con borde fino del color del texto.",
+      "Planchas de foto casi rectas (3px), sin marco ni sombra.",
+      "Un pliego nocturno (#141110 aprox.) por página como cambio de registro."
+    ],
+    "rules": [
+      { "name": "The Una Sola Amapola Rule", "body": "El coral es el único color saturado de la página y lo carga la fotografía. La interfaz no añade otros acentos, degradados ni fondos de color.", "section": "colors" },
+      { "name": "The Coral No Es Tinta Rule", "body": "El coral no se usa como color de texto pequeño ni como fondo de texto pequeño: sobre el papel da 3.1:1 y con texto claro encima 4:1, por debajo de AA. Solo para imagen, foco, selección y texto grande.", "section": "colors" },
+      { "name": "The Cursiva Que Señala Rule", "body": "En cada titular, una o dos palabras van en cursiva: las que cargan la emoción («deja», «mirarla», «de mirarte»). Nunca la frase entera ni negrita en la serif.", "section": "typography" },
+      { "name": "The Un Solo Peso Rule", "body": "Instrument Serif se usa solo en 400. La jerarquía la dan el tamaño, el interlineado apretado y la cursiva.", "section": "typography" },
+      { "name": "The Papel Plano Rule", "body": "Ningún elemento proyecta sombra. Si algo necesita separarse, se separa con espacio, con un filete al 22% o pasando a la noche.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do deja que la fotografía lleve el color: papel melocotón, tinta cálida y el coral solo en la imagen, el foco y la selección.",
+      "Do pon en cursiva la palabra que carga la emoción en cada titular de Instrument Serif.",
+      "Do usa la píldora sólida de tinta para la acción de WhatsApp y la de línea para la secundaria.",
+      "Do monta las fotos en planchas de 3px sin marco ni sombra y desfásalas en vertical cuando vayan en serie.",
+      "Do reserva el rótulo espaciado para metadatos impresos (folio, credenciales, autoría).",
+      "Do usa un pliego nocturno por página como cambio de registro."
+    ],
+    "donts": [
+      "Don't pongas texto pequeño en coral ni sobre coral (3.1:1 y 4:1, por debajo de AA).",
+      "Don't añadas sombras, degradados decorativos ni iconos en baldosa.",
+      "Don't redondees las fotos más allá de 3px ni uses tarjetas con fondo para agrupar contenido.",
+      "Don't pongas rótulos ni antetítulos encima de los titulares de sección.",
+      "Don't uses Instrument Serif en negrita ni la frase entera en cursiva."
+    ]
+  }
+}
