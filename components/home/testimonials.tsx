@@ -6,7 +6,7 @@ export function Testimonials() {
   return (
     <section
       aria-labelledby="voces-title"
-      className="mx-auto max-w-[90rem] px-5 py-24 md:px-10 md:py-36"
+      className="screen reveal mx-auto max-w-[90rem] px-5 py-32 md:px-10 md:py-48"
     >
       <h2 id="voces-title" className="display text-[3rem] leading-[0.95] md:text-[4.5rem]">
         Lo que <em>vieron</em>

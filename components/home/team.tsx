@@ -5,7 +5,7 @@ export function Team() {
     <section
       id="nosotras"
       aria-labelledby="nosotras-title"
-      className="overflow-hidden bg-night py-24 text-night-foreground md:py-36"
+      className="screen reveal overflow-hidden bg-night py-32 text-night-foreground md:py-48"
     >
       <div className="mx-auto max-w-[90rem] px-5 md:px-10">
         <h2
@@ -14,7 +14,7 @@ export function Team() {
         >
           Noso<em>tras</em>
         </h2>
-        <div className="mt-14 grid gap-12 md:grid-cols-12 md:gap-8">
+        <div className="mt-20 grid gap-16 md:mt-28 md:grid-cols-12 md:gap-10">
           <p className="display text-[1.75rem] leading-[1.1] md:col-span-6 md:text-[2.5rem]">
             Somos dos psicólogas colegiadas. Unimos la psicología y la fotografía terapéutica en{" "}
             <em>un método propio</em> para acompañarte a ver, y no solo a contar, lo que sientes.

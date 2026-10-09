@@ -31,6 +31,8 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    /* Pantalla a pantalla: en escritorio el scroll encaja en cada sección; en móvil, las largas se recorren enteras. */
+    scroll-snap-type: y proximity;
     scrollbar-color: var(--foreground) var(--background);
   }
   ::selection {
@@ -50,7 +52,20 @@
   }
 }
 
+@media (min-width: 768px) {
+  html {
+    scroll-snap-type: y mandatory;
+  }
+}
+
 @layer components {
+  .screen {
+    scroll-snap-align: start;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
   .display {
     font-family: var(--font-heading), Georgia, serif;
     font-weight: 400;
@@ -103,6 +118,27 @@
 }
 
 /* La amapola (ya virada a coral en el archivo) es el único acento saturado de la página. */
+
+/* Al llegar a cada sección, su contenido entra con un fundido y un leve ascenso. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports (animation-timeline: view()) {
+    .reveal > * {
+      animation: reveal linear both;
+      animation-timeline: view();
+      animation-range: entry 5% entry 70%;
+    }
+    @keyframes reveal {
+      from {
+        opacity: 0;
+        translate: 0 3rem;
+      }
+      to {
+        opacity: 1;
+        translate: 0 0;
+      }
+    }
+  }
+}
 
 /* Gesto propio: la amapola se enfoca al hacer scroll, como un recuerdo que vuelve. */
 @media (prefers-reduced-motion: no-preference) {

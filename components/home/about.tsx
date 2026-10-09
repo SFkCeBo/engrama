@@ -3,7 +3,7 @@ export function About() {
     <section
       id="que-es"
       aria-labelledby="que-es-title"
-      className="mx-auto grid max-w-[90rem] gap-10 px-5 py-24 md:grid-cols-12 md:gap-8 md:px-10 md:py-36"
+      className="screen reveal mx-auto grid max-w-[90rem] content-center gap-12 px-5 py-32 md:grid-cols-12 md:gap-10 md:px-10 md:py-48"
     >
       <aside className="text-muted-foreground text-sm leading-relaxed md:col-span-3">
         <p className="display text-2xl text-foreground">

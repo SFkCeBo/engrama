@@ -10,7 +10,7 @@ const links = [
 
 export function Masthead() {
   return (
-    <header className="relative z-10 mx-auto flex max-w-[90rem] items-center justify-between px-5 py-5 md:px-10">
+    <header className="absolute inset-x-0 top-0 z-20 mx-auto flex max-w-[90rem] items-center justify-between px-5 py-5 md:px-10">
       <Link
         href="/"
         className="flex items-baseline gap-3 no-underline"

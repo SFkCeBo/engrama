@@ -3,7 +3,7 @@ export function Where() {
     <section
       id="donde"
       aria-labelledby="donde-title"
-      className="mx-auto grid max-w-[90rem] gap-8 px-5 py-24 md:grid-cols-12 md:px-10 md:py-36"
+      className="screen reveal mx-auto grid max-w-[90rem] content-center gap-12 px-5 py-32 md:grid-cols-12 md:gap-10 md:px-10 md:py-48"
     >
       <h2
         id="donde-title"

@@ -4,14 +4,14 @@ import { services } from "@/content/site";
 import { whatsappHref } from "@/lib/contact";
 
 // Desfase vertical de cada foto, como en un pliego de revista.
-const offsets = ["md:mt-0", "md:mt-40", "md:mt-16"];
+const offsets = ["md:mt-0", "md:mt-32", "md:mt-12"];
 
 export function Services() {
   return (
     <section
       id="servicios"
       aria-labelledby="servicios-title"
-      className="mx-auto max-w-[90rem] px-5 pb-24 md:px-10 md:pb-36"
+      className="screen reveal mx-auto max-w-[90rem] px-5 py-32 md:px-10 md:py-40"
     >
       <div className="grid gap-14 md:grid-cols-12 md:gap-8">
         <div className="md:col-span-3">
@@ -23,7 +23,7 @@ export function Services() {
             precios.
           </p>
         </div>
-        <ul className="grid gap-16 md:col-span-9 md:grid-cols-3 md:gap-8">
+        <ul className="grid gap-20 md:col-span-8 md:col-start-5 md:grid-cols-3 md:gap-10">
           {services.map((s, i) => (
             <li key={s.id} className={offsets[i]}>
               <article aria-labelledby={`${s.id}-title`}>
