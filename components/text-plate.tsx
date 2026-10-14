@@ -8,11 +8,11 @@ export function TextPlate({ phrase, emphasis, className }: Props) {
   return (
     <div
       className={cn(
-        "group flex aspect-[4/5] items-end overflow-hidden rounded-[3px] bg-night p-6 text-night-foreground md:p-8",
+        "group @container flex aspect-[4/5] items-end overflow-hidden rounded-[3px] bg-night p-[8%] text-night-foreground",
         className,
       )}
     >
-      <p className="display text-[2rem] leading-[1] transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.03] md:text-[2.5rem]">
+      <p className="display text-[clamp(1.125rem,12cqi,2.5rem)] leading-[1] transition-transform duration-700 ease-[var(--ease-out-expo)] group-hover:scale-[1.03]">
         {at < 0 || !emphasis ? (
           phrase
         ) : (

@@ -1,0 +1,17 @@
+# Netlify: en la UI, Base directory = raíz del repo (vacío) y Package directory = apps/engrama.
+# pnpm instala el workspace completo desde la raíz (versión de "packageManager"; Node de .nvmrc).
+#
+# Se llama a next build sin turbo: el modo estricto de turbo filtra variables de entorno que no
+# declara (CONTEXT, las del adaptador de Next de Netlify). Los packages @mfdev/* no tienen build
+# propio: Next los transpila (transpilePackages).
+#
+# Variables obligatorias en Netlify (Project configuration > Environment variables):
+#   NEXT_PUBLIC_WHATSAPP  (E.164 sin +), NEXT_PUBLIC_PHONE, NEXT_PUBLIC_SITE_URL
+# Sin las dos primeras, el build de producción falla a propósito (lib/contact.ts).
+
+[build]
+  command = "pnpm --filter engrama build"
+  publish = "apps/engrama/.next"
+
+[build.environment]
+  NEXT_TELEMETRY_DISABLED = "1"

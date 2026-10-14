@@ -172,7 +172,7 @@ Una paleta de papel y tinta cálidos donde el color saturado lo pone la imagen, 
 
 Página de 1440px de ancho máximo con márgenes de 20px en móvil y 40px desde 768px. En escritorio, rejilla de 12 columnas con medianil de 32px, usada en asimetría: nota al margen en 3 columnas y bloque principal en 8 desplazado a la columna 5; titular en 8 y párrafo alineado abajo en 4. Las secciones respiran 96px arriba y abajo en móvil y 144px en escritorio; los bloques internos se separan unos 56px.
 
-Las tres fotos de servicios se desfasan en vertical (0, 160px, 64px) como un pliego de revista. La foto de portada sangra por los lados en móvil (118vw) y en escritorio queda centrada detrás del titular, que la pisa. En móvil, la acción principal es una píldora fija abajo a todo el ancho; el pie y la portada reservan unos 112px para no quedar tapados. Un único punto de corte de diseño a 768px; a 640px solo aparecen el folio de la cabecera y la doble fila de botones del cierre.
+Las tres fotos de servicios se desfasan en vertical (0, 160px, 64px) como un pliego de revista. La foto de portada sangra por los lados en móvil (118vw) y en escritorio queda centrada detrás del titular, que la pisa. En móvil, la acción principal es una píldora fija abajo a todo el ancho; el pie y la portada reservan unos 112px para no quedar tapados. Scroll-snap vertical en `proximity` en todos los tamaños (el carrusel fijado no admite `mandatory`). Un único punto de corte de diseño a 768px; a 640px solo aparecen el folio de la cabecera y la doble fila de botones del cierre.
 
 ## Elevation & Depth
 
@@ -221,8 +221,8 @@ Subrayado de 1px con separación de 0.2em.
 ### Plancha de texto
 Ocupa el sitio de una foto donde no la hay (piezas y contacto): plancha 4:5 en noche, 3px, con una frase en Instrument Serif (2 a 2.5rem, interlineado 1) en papel, abajo a la izquierda, y una palabra en cursiva. Al pasar el ratón la frase crece un 3% (700ms). Componente `components/text-plate.tsx`.
 
-### Piezas (carril numerado)
-Inspirado en el «Selected work» de huyml.co: carril horizontal con scroll-snap de planchas de texto (78vw en móvil, 24rem en escritorio) que sangra por la derecha. Bajo cada plancha, rótulo de categoría y número; bajo el carril, contador en serif («01 / 06») y dos píldoras de línea con flecha. Respeta reduced-motion al saltar.
+### Piezas (carrusel GSAP)
+Inspirado en el «Selected work» de huyml.co. Con GSAP + ScrollTrigger la sección se fija a pantalla completa y el scroll gira un carrusel 3D de planchas de texto (perspectiva 1400px; cada vecina desplazada 1.12 anchos, -18° en Y y hacia atrás), encajando pieza a pieza. La central va a tinta plena, la vecina al 50% y la segunda se desvanece. Bajo el carrusel, una ficha centrada (rótulo de categoría, filete de 12px, descripción) que entra enfocándose (blur 6px → 0, 0.6s); abajo, contador en serif («01 / 06»), «Desliza para girar» y dos píldoras de línea. El ancho de plancha se calcula con la altura de pantalla para que todo quepa en móvil. Sin JS o con reduced-motion queda como carril horizontal con scroll-snap. La frase de la plancha escala con su ancho (container queries).
 
 ### Índice
 Lista numerada con filete entre filas: número en rótulo, título en pie de foto (2.25 a 3rem), subtítulo en cursiva, ficha `dl` (Modalidad, Duración, Quién) y descripción con enlace de WhatsApp.

@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@mfdev/ui": "workspace:*",
+    "@gsap/react": "catalog:",
     "@mfdev/utils": "workspace:*",
+    "gsap": "catalog:",
     "lucide-react": "catalog:",
     "next": "catalog:",
     "next-themes": "catalog:",

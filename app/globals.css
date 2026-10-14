@@ -52,11 +52,7 @@
   }
 }
 
-@media (min-width: 768px) {
-  html {
-    scroll-snap-type: y mandatory;
-  }
-}
+/* Proximity también en escritorio: el carrusel de Piezas se fija con GSAP y un snap obligatorio lo saltaría. */
 
 @layer components {
   .screen {
@@ -118,6 +114,110 @@
 }
 
 /* La amapola (ya virada a coral en el archivo) es el único acento saturado de la página. */
+
+/* Piezas. Modo lista (sin JS o con reduced-motion): carril horizontal con scroll-snap. */
+.piezas {
+  padding-block: 8rem;
+}
+.piezas-track {
+  margin-top: 3.5rem;
+  display: flex;
+  gap: 1.25rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: 0 1.25rem 1rem;
+  scroll-padding-inline: 1.25rem;
+  scrollbar-width: none;
+}
+.piezas-item {
+  width: 78vw;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+.piezas-info {
+  display: none;
+}
+.piezas-bar {
+  margin-top: 2rem;
+}
+@media (min-width: 640px) {
+  .piezas-item {
+    width: 22rem;
+  }
+}
+@media (min-width: 768px) {
+  .piezas {
+    padding-block: 6rem;
+  }
+  .piezas-track {
+    margin-top: 5rem;
+    gap: 2rem;
+    padding-inline: 2.5rem;
+    scroll-padding-inline: 2.5rem;
+  }
+  .piezas-item {
+    width: 24rem;
+  }
+}
+
+/* Modo carrusel (GSAP): la sección ocupa la pantalla y las planchas giran en 3D alrededor del centro. */
+.piezas[data-mode="carousel"] {
+  --plate-w: min(62vw, 24rem, calc((100svh - 28rem) * 0.8));
+  height: 100svh;
+  padding-block: 4.5rem 6.5rem;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.piezas[data-mode="carousel"] .piezas-stage {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  perspective: 1400px;
+}
+.piezas[data-mode="carousel"] .piezas-track {
+  position: absolute;
+  inset: 0;
+  margin: 0;
+  padding: 0;
+  display: block;
+  overflow: visible;
+  transform-style: preserve-3d;
+}
+.piezas[data-mode="carousel"] .piezas-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: var(--plate-w);
+  margin-top: calc(var(--plate-w) * -0.625);
+  margin-left: calc(var(--plate-w) / -2);
+}
+.piezas[data-mode="carousel"] .piezas-caption {
+  display: none;
+}
+.piezas[data-mode="carousel"] .piezas-info {
+  display: block;
+  min-height: 7.5rem;
+  padding: 1.25rem 1.25rem 0;
+  text-align: center;
+}
+.piezas[data-mode="carousel"] .piezas-bar {
+  margin-top: 1rem;
+}
+@media (max-width: 767px) {
+  .piezas[data-mode="carousel"] .piezas-intro {
+    display: none;
+  }
+  .piezas[data-mode="carousel"] h2 {
+    font-size: 2.75rem;
+  }
+}
+@media (min-width: 768px) {
+  .piezas[data-mode="carousel"] {
+    --plate-w: min(24rem, calc((100svh - 25rem) * 0.8));
+    padding-block: 5rem 2.5rem;
+  }
+}
 
 /* Al llegar a cada sección, su contenido entra con un fundido y un leve ascenso. */
 @media (prefers-reduced-motion: no-preference) {
