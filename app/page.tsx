@@ -2,12 +2,13 @@ import { About } from "@/components/home/about";
 import { Closing } from "@/components/home/closing";
 import { Footer } from "@/components/home/footer";
 import { Hero } from "@/components/home/hero";
+import { IndexList } from "@/components/home/index-list";
 import { Masthead } from "@/components/home/masthead";
-import { Services } from "@/components/home/services";
 import { StickyCta } from "@/components/home/sticky-cta";
 import { Team } from "@/components/home/team";
 import { Testimonials } from "@/components/home/testimonials";
 import { Where } from "@/components/home/where";
+import { Work } from "@/components/home/work";
 import { siteUrl } from "@/lib/contact";
 
 const jsonLd = {
@@ -28,7 +29,8 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Services />
+        <Work />
+        <IndexList />
         <Team />
         <Testimonials />
         <Where />

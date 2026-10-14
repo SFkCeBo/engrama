@@ -1,12 +1,6 @@
 import Link from "next/link";
 import { whatsappHref } from "@/lib/contact";
-
-const links = [
-  { href: "#que-es", label: "Qué es" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#nosotras", label: "Nosotras" },
-  { href: "#donde", label: "Dónde" },
-];
+import { Menu } from "./menu";
 
 export function Masthead() {
   return (
@@ -21,19 +15,12 @@ export function Masthead() {
           Vol. I · Fotografía terapéutica
         </span>
       </Link>
-      <nav aria-label="Secciones" className="hidden gap-8 text-sm md:flex">
-        {links.map((l) => (
-          <a key={l.href} href={l.href} className="no-underline hover:underline">
-            {l.label}
-          </a>
-        ))}
-      </nav>
-      <a href={whatsappHref()} className="label no-underline hover:underline md:hidden">
-        Escríbenos
-      </a>
-      <a href={whatsappHref()} className="pill pill-line hidden min-h-10 text-sm md:inline-flex">
-        Escríbenos
-      </a>
+      <div className="flex items-center gap-6">
+        <Menu />
+        <a href={whatsappHref()} className="pill pill-line hidden min-h-10 text-sm md:inline-flex">
+          Escríbenos
+        </a>
+      </div>
     </header>
   );
 }

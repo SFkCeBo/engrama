@@ -16,21 +16,20 @@ export function Team() {
         </h2>
         <div className="mt-20 grid gap-16 md:mt-28 md:grid-cols-12 md:gap-10">
           <p className="display text-[1.75rem] leading-[1.1] md:col-span-6 md:text-[2.5rem]">
-            Somos dos psicólogas colegiadas. Unimos la psicología y la fotografía terapéutica en{" "}
-            <em>un método propio</em> para acompañarte a ver, y no solo a contar, lo que sientes.
+            Somos Bianca y Laura, dos psicólogas colegiadas. Unimos la psicología y la fotografía
+            terapéutica en <em>un método propio</em> para acompañarte a ver, y no solo a contar, lo
+            que sientes.
           </p>
           <ul className="grid gap-10 sm:grid-cols-2 md:col-span-5 md:col-start-8">
-            {team.map((p, i) => (
-              // biome-ignore lint/suspicious/noArrayIndexKey: lista fija de dos personas, sin nombre todavía
-              <li key={i} className="border-night-foreground/25 border-t pt-5">
-                {/* TODO: nombre, número de colegiada y una línea de cada psicóloga. */}
-                <p className="caption text-2xl">{p.name ?? "Nombre pendiente"}</p>
-                <p className="label mt-3 text-night-foreground/70">
-                  Psicóloga colegiada · Nº {p.license ?? "pendiente"}
+            {team.map((p) => (
+              <li key={p.name} className="border-night-foreground/25 border-t pt-5">
+                <p className="caption text-2xl">{p.name}</p>
+                <p className="display mt-2 text-lg italic">{p.role}</p>
+                <p className="mt-3 text-night-foreground/80 text-sm leading-relaxed">{p.bio}</p>
+                {/* TODO: número de colegiada real en content/site.ts. */}
+                <p className="label mt-4 text-night-foreground/70">
+                  Colegiada · Nº {p.license ?? "pendiente"}
                 </p>
-                {p.bio && (
-                  <p className="mt-3 text-night-foreground/80 text-sm leading-relaxed">{p.bio}</p>
-                )}
               </li>
             ))}
           </ul>

@@ -13,4 +13,6 @@ Landing de Engrama: dos psicólogas colegiadas que trabajan con fotografía tera
 - Ruta del MVP: `/` (una sola página) más `/aviso-legal`, `/privacidad` y `/cookies`.
 - Conversión: botón de WhatsApp o llamada, siempre visible en el móvil. Sin backend ni formularios.
 - Variables de entorno (ver `.env.example`): `NEXT_PUBLIC_WHATSAPP` (formato E.164 sin +), `NEXT_PUBLIC_PHONE` y `NEXT_PUBLIC_SITE_URL`.
-- Imágenes y testimonios: solo reales. Mientras no los haya, usa marcadores `TODO`. No inventes nombres ni credenciales.
+- Psicólogas: Bianca y Laura. Los textos de piezas, bios y contacto de `content/site.ts` son inventados y aprobados (2026-10-14); se pueden reescribir.
+- Imágenes, testimonios y números de colegiada: solo reales. Mientras no los haya, usa marcadores `TODO`. No inventes credenciales.
+- Estructura inspirada en huyml.co (portada con ficha, piezas numeradas en carril horizontal, índice, contacto por intención, pie con reloj), con la marca de Engrama.

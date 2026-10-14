@@ -218,6 +218,21 @@ Cabecera sin fondo: logotipo en cursiva y folio en rótulo a la izquierda, cuatr
 ### Enlaces
 Subrayado de 1px con separación de 0.2em.
 
+### Plancha de texto
+Ocupa el sitio de una foto donde no la hay (piezas y contacto): plancha 4:5 en noche, 3px, con una frase en Instrument Serif (2 a 2.5rem, interlineado 1) en papel, abajo a la izquierda, y una palabra en cursiva. Al pasar el ratón la frase crece un 3% (700ms). Componente `components/text-plate.tsx`.
+
+### Piezas (carril numerado)
+Inspirado en el «Selected work» de huyml.co: carril horizontal con scroll-snap de planchas de texto (78vw en móvil, 24rem en escritorio) que sangra por la derecha. Bajo cada plancha, rótulo de categoría y número; bajo el carril, contador en serif («01 / 06») y dos píldoras de línea con flecha. Respeta reduced-motion al saltar.
+
+### Índice
+Lista numerada con filete entre filas: número en rótulo, título en pie de foto (2.25 a 3rem), subtítulo en cursiva, ficha `dl` (Modalidad, Duración, Quién) y descripción con enlace de WhatsApp.
+
+### Menú
+Diálogo a pantalla completa en papel (`@mfdev/ui` Dialog): logotipo y «Cerrar» arriba, secciones numeradas en serif de 2.75 a 5rem separadas por filetes, y la píldora de WhatsApp abajo. Al saltar a una sección no devuelve el foco al botón.
+
+### Ficha de portada y pie
+En escritorio, la portada cierra con una fila de metadatos (Número, Psicólogas, Formato) y «Desliza». El pie va en rejilla: logotipo, «Psicólogas independientes», la hora de Madrid en vivo y los enlaces legales.
+
 ### Recuerdo (movimiento propio)
 La foto de portada entra desenfocada (blur 4px, saturación 0.7, brillo 1.05, escala 1.04) y se enfoca durante el primer 40% de su recorrido en pantalla, ligada al scroll. Solo con `prefers-reduced-motion: no-preference` y soporte de `animation-timeline`; si no, la foto aparece enfocada.
 

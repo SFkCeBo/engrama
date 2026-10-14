@@ -6,7 +6,7 @@ export function Hero() {
   return (
     <section
       aria-labelledby="hero-title"
-      className="screen relative isolate overflow-hidden pt-20 pb-28 md:justify-start md:pt-20 md:pb-0"
+      className="screen relative isolate overflow-hidden pt-20 pb-28 md:justify-start md:pt-20 md:pb-24"
     >
       <div className="relative z-10 mx-auto w-full max-w-[90rem] px-5 pt-10 md:my-auto md:px-10 md:pt-0 md:pb-8">
         <h1
@@ -35,6 +35,25 @@ export function Hero() {
           sizes="(min-width: 768px) 60vw, 105vw"
           className="recall object-contain"
         />
+      </div>
+
+      {/* Ficha de portada, como los créditos de un número: quiénes, desde cuándo, dónde. */}
+      <div className="absolute inset-x-0 bottom-0 z-10 mx-auto hidden max-w-[90rem] items-end gap-16 px-10 pb-8 text-sm md:flex">
+        <dl className="flex gap-16">
+          {[
+            ["Número", "Vol. I · 2026"],
+            ["Psicólogas", "Bianca y Laura"],
+            ["Formato", "Presencial y online"],
+          ].map(([k, v]) => (
+            <div key={k}>
+              <dt className="label text-muted-foreground">{k}</dt>
+              <dd className="mt-1">{v}</dd>
+            </div>
+          ))}
+        </dl>
+        <a href="#que-es" className="label no-underline hover:underline">
+          Desliza <span aria-hidden="true">↓</span>
+        </a>
       </div>
     </section>
   );
