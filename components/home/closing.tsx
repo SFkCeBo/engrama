@@ -1,6 +1,6 @@
 import { Phone } from "lucide-react";
-import { contactGroups } from "@/content/site";
-import { phone, phoneHref, whatsappHref } from "@/lib/contact";
+import { contactGroups, contactSoon } from "@/content/site";
+import { hasWhatsapp, phone, phoneHref, whatsappHref } from "@/lib/contact";
 import { TextPlate } from "../text-plate";
 import { WhatsappIcon } from "../whatsapp-icon";
 
@@ -25,22 +25,37 @@ export function Closing() {
             <div className="border-border border-t pt-5">
               <dt className="label text-muted-foreground">{contactGroups.write.title}</dt>
               <dd className="mt-3">
-                <p className="max-w-[32ch] text-sm leading-relaxed">{contactGroups.write.note}</p>
-                <a href={whatsappHref()} className="pill pill-solid mt-5">
-                  <WhatsappIcon className="size-5" />
-                  WhatsApp
-                </a>
+                {hasWhatsapp ? (
+                  <>
+                    <p className="max-w-[32ch] text-sm leading-relaxed">
+                      {contactGroups.write.note}
+                    </p>
+                    <a href={whatsappHref()} className="pill pill-solid mt-5">
+                      <WhatsappIcon className="size-5" />
+                      WhatsApp
+                    </a>
+                  </>
+                ) : (
+                  <p className="max-w-[32ch] text-sm leading-relaxed">{contactSoon.write}</p>
+                )}
               </dd>
             </div>
             <div className="border-border border-t pt-5">
               <dt className="label text-muted-foreground">{contactGroups.call.title}</dt>
               <dd className="mt-3">
-                <p className="max-w-[32ch] text-sm leading-relaxed">{contactGroups.call.note}</p>
-                <a href={phoneHref} className="pill pill-line mt-5">
-                  <Phone className="size-4" aria-hidden="true" />
-                  {/* TODO: NEXT_PUBLIC_PHONE en .env.local */}
-                  {phone ? <span className="tabular-nums">{phone}</span> : "Teléfono pendiente"}
-                </a>
+                {phone ? (
+                  <>
+                    <p className="max-w-[32ch] text-sm leading-relaxed">
+                      {contactGroups.call.note}
+                    </p>
+                    <a href={phoneHref} className="pill pill-line mt-5">
+                      <Phone className="size-4" aria-hidden="true" />
+                      <span className="tabular-nums">{phone}</span>
+                    </a>
+                  </>
+                ) : (
+                  <p className="max-w-[32ch] text-sm leading-relaxed">{contactSoon.call}</p>
+                )}
               </dd>
             </div>
             <div className="border-border border-t pt-5 sm:col-span-2">

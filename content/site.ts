@@ -145,6 +145,12 @@ export const contactGroups = {
   },
 } satisfies Record<string, ContactGroup>;
 
+/** Textos mientras no haya WhatsApp ni teléfono configurados (primera versión publicada). */
+export const contactSoon = {
+  write: "Muy pronto podrás escribirnos por WhatsApp. Estamos preparando el canal.",
+  call: "El teléfono llega en unos días. Vuelve pronto.",
+};
+
 export type Testimonial = { quote: string; author: string; context?: string };
 
 // TODO: testimonios reales con permiso. Mientras esté vacío, la sección no se muestra.

@@ -15,12 +15,9 @@ const env = schema.parse({
   NEXT_PUBLIC_SITE_URL: process.env.NEXT_PUBLIC_SITE_URL || undefined,
 });
 
-// Nunca publicar un número inventado: en el despliegue de producción, el contacto es obligatorio.
-const isProductionDeploy =
-  process.env.VERCEL_ENV === "production" || process.env.CONTEXT === "production";
-if (isProductionDeploy && (!env.NEXT_PUBLIC_WHATSAPP || !env.NEXT_PUBLIC_PHONE)) {
-  throw new Error("Faltan NEXT_PUBLIC_WHATSAPP y NEXT_PUBLIC_PHONE para publicar Engrama.");
-}
+// Primera versión publicada sin contacto (decisión de Engrama, 2026-10-14): mientras falten,
+// los botones llevan a #contacto y esa sección dice que el WhatsApp y el teléfono llegan pronto.
+export const hasWhatsapp = Boolean(env.NEXT_PUBLIC_WHATSAPP);
 
 export const siteUrl = env.NEXT_PUBLIC_SITE_URL;
 

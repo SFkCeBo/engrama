@@ -12,7 +12,8 @@ Landing de Engrama: dos psicólogas colegiadas que trabajan con fotografía tera
 - Fuente de verdad: `BRIEF.md`. El contexto de producto está en `PRODUCT.md`.
 - Ruta del MVP: `/` (una sola página) más `/aviso-legal`, `/privacidad` y `/cookies`.
 - Conversión: botón de WhatsApp o llamada, siempre visible en el móvil. Sin backend ni formularios.
-- Despliegue: Netlify (`netlify.toml`; en la UI, Package directory = `apps/engrama`, base en la raíz).
+- Despliegue: Netlify, proyecto `engrama-904` (https://engrama-904.netlify.app), web estática (`output: "export"`). Publicar desde la raíz: `pnpm dlx --package=netlify-cli netlify deploy --build --prod --filter engrama`.
+- Primera versión sin WhatsApp ni teléfono: la sección de contacto muestra «muy pronto» (`contactSoon`). Al tenerlos, añádelos como variables en Netlify y vuelve a publicar.
 - Variables de entorno (ver `.env.example`): `NEXT_PUBLIC_WHATSAPP` (formato E.164 sin +), `NEXT_PUBLIC_PHONE` y `NEXT_PUBLIC_SITE_URL`.
 - Psicólogas: Bianca y Laura. Los textos de piezas, bios y contacto de `content/site.ts` son inventados y aprobados (2026-10-14); se pueden reescribir.
 - Imágenes, testimonios y números de colegiada: solo reales. Mientras no los haya, usa marcadores `TODO`. No inventes credenciales.
