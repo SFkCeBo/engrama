@@ -1,5 +1,5 @@
 /*
- * Tokens base (copiados de @mfdev/tokens) (Tailwind v4 y shadcn/ui).
+ * Tokens base (copiados del monorepo mfdev) (Tailwind v4 y shadcn/ui).
  * Cada app importa este archivo después de "tailwindcss" y puede sobrescribir
  * cualquier variable en su propio CSS para tener su marca. Los colores están en OKLCH.
  */

@@ -228,7 +228,7 @@ Inspirado en el «Selected work» de huyml.co. Con GSAP + ScrollTrigger la secci
 Lista numerada con filete entre filas: número en rótulo, título en pie de foto (2.25 a 3rem), subtítulo en cursiva, ficha `dl` (Modalidad, Duración, Quién) y descripción con enlace de WhatsApp.
 
 ### Menú
-Diálogo a pantalla completa en papel (`@mfdev/ui` Dialog): logotipo y «Cerrar» arriba, secciones numeradas en serif de 2.75 a 5rem separadas por filetes, y la píldora de WhatsApp abajo. Al saltar a una sección no devuelve el foco al botón.
+Diálogo a pantalla completa en papel (Dialog de `components/ui`): logotipo y «Cerrar» arriba, secciones numeradas en serif de 2.75 a 5rem separadas por filetes, y la píldora de WhatsApp abajo. Al saltar a una sección no devuelve el foco al botón.
 
 ### Ficha de portada y pie
 En escritorio, la portada cierra con una fila de metadatos (Número, Psicólogas, Formato) y «Desliza». El pie va en rejilla: logotipo, «Psicólogas independientes», la hora de Madrid en vivo y los enlaces legales.
