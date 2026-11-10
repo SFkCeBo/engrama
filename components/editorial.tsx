@@ -1,4 +1,4 @@
-import { cn } from "@mfdev/utils";
+import { cn } from "@/lib/utils";
 import { Emphasis, TextPlate } from "./text-plate";
 
 const clean = (title: string) => title.replace(/[,:]$/, "");

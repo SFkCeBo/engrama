@@ -1,4 +1,4 @@
-import { cn } from "@mfdev/utils";
+import { cn } from "@/lib/utils";
 
 /** Pone en cursiva la palabra que carga la emoción (regla Cursiva Que Señala). */
 export function Emphasis({ text, emphasis }: { text: string; emphasis?: string }) {

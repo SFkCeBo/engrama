@@ -51,6 +51,7 @@ export function Curtain() {
   }, [router]);
 
   // La página nueva ya está montada (cambió `pathname`): la cortina sigue su camino hacia arriba.
+  // biome-ignore lint/correctness/useExhaustiveDependencies: el efecto debe dispararse al cambiar de ruta.
   useEffect(() => {
     if (!pending.current) return;
     pending.current = false;

@@ -1,5 +1,6 @@
 "use client";
 
+import { useRef } from "react";
 import {
   Dialog,
   DialogClose,
@@ -7,8 +8,7 @@ import {
   DialogDescription,
   DialogTitle,
   DialogTrigger,
-} from "@mfdev/ui/components/dialog";
-import { useRef } from "react";
+} from "@/components/ui/dialog";
 import { whatsappHref } from "@/lib/contact";
 import { WhatsappIcon } from "../whatsapp-icon";
 

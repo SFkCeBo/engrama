@@ -1,19 +1,15 @@
-# Netlify: en la UI, Base directory = raíz del repo (vacío) y Package directory = apps/engrama.
-# Desde la CLI: `netlify deploy --build --filter engrama` en la raíz del repo.
+# Netlify: Base directory = raíz del repo. Desde la CLI: `pnpm dlx --package=netlify-cli netlify deploy --build --prod`.
 #
 # La web es estática (next.config: output "export"): se publica `out/` sin el adaptador de Next
 # (que además falla con pnpm en Windows al recrear symlinks).
-#
-# Se llama a next build sin turbo: el modo estricto de turbo filtra variables de entorno que no
-# declara (CONTEXT). Los packages @mfdev/* no tienen build propio: Next los transpila.
 #
 # Variables obligatorias en producción (Project configuration > Environment variables):
 #   NEXT_PUBLIC_WHATSAPP  (E.164 sin +), NEXT_PUBLIC_PHONE, NEXT_PUBLIC_SITE_URL
 # Sin las dos primeras, el build de producción falla a propósito (lib/contact.ts).
 
 [build]
-  command = "pnpm --filter engrama build"
-  publish = "apps/engrama/out"
+  command = "pnpm build"
+  publish = "out"
 
 [build.environment]
   NEXT_TELEMETRY_DISABLED = "1"

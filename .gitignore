@@ -1,0 +1,22 @@
+node_modules/
+.next/
+out/
+coverage/
+*.tsbuildinfo
+next-env.d.ts
+.env*
+!.env.example
+.DS_Store
+*.log
+.vercel
+.netlify
+
+# Claude Code: binario de impeccable (se descarga solo) y ajustes locales
+.claude/skills/impeccable/scripts/bin/
+.claude/settings.local.json
+
+# impeccable: capturas y bocetos de trabajo (no se publican)
+**/.impeccable/review/
+**/.impeccable/decision/
+**/.impeccable/build/
+**/.impeccable/questions/
