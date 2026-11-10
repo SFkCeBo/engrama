@@ -31,3 +31,10 @@ export function whatsappHref(
   if (!env.NEXT_PUBLIC_WHATSAPP) return "#contacto";
   return `https://wa.me/${env.NEXT_PUBLIC_WHATSAPP}?text=${encodeURIComponent(message)}`;
 }
+
+/** Correo de Engrama (briefing v2): lo usan las páginas de servicio. */
+export const email = "engramafoto@gmail.com";
+
+export function mailHref(subject?: string) {
+  return subject ? `mailto:${email}?subject=${encodeURIComponent(subject)}` : `mailto:${email}`;
+}

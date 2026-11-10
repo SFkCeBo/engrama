@@ -1,5 +1,6 @@
 import { About } from "@/components/home/about";
 import { Closing } from "@/components/home/closing";
+import { Doors } from "@/components/home/doors";
 import { Footer } from "@/components/home/footer";
 import { Hero } from "@/components/home/hero";
 import { IndexList } from "@/components/home/index-list";
@@ -8,7 +9,6 @@ import { StickyCta } from "@/components/home/sticky-cta";
 import { Team } from "@/components/home/team";
 import { Testimonials } from "@/components/home/testimonials";
 import { Where } from "@/components/home/where";
-import { Work } from "@/components/home/work";
 import { siteUrl } from "@/lib/contact";
 
 const jsonLd = {
@@ -29,7 +29,7 @@ export default function Home() {
       <main>
         <Hero />
         <About />
-        <Work />
+        <Doors />
         <IndexList />
         <Team />
         <Testimonials />

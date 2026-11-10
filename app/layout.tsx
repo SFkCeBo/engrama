@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Hanken_Grotesk, Instrument_Serif } from "next/font/google";
 import type { ReactNode } from "react";
+import { Curtain } from "@/components/curtain";
 import { siteUrl } from "@/lib/contact";
 import "./globals.css";
 
@@ -41,8 +42,16 @@ export const viewport: Viewport = { themeColor: "#f2d8c2", colorScheme: "light" 
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="es" className={`${heading.variable} ${brand.variable}`}>
-      <body>{children}</body>
+    // data-scroll-behavior: Next desactiva el scroll suave al cambiar de página (tras la cortina).
+    <html
+      lang="es"
+      data-scroll-behavior="smooth"
+      className={`${heading.variable} ${brand.variable}`}
+    >
+      <body>
+        {children}
+        <Curtain />
+      </body>
     </html>
   );
 }

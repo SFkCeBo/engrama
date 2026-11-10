@@ -69,68 +69,6 @@ export const services: Service[] = [
   },
 ];
 
-/** Una «pieza» del trabajo: plancha de texto en lugar de foto. */
-export type Piece = {
-  id: string;
-  category: string;
-  phrase: string;
-  /** Palabra de la frase que va en cursiva (debe aparecer tal cual en `phrase`). */
-  emphasis: string;
-  body: string;
-  service: Service["id"];
-};
-
-export const pieces: Piece[] = [
-  {
-    id: "la-foto-que-no-hiciste",
-    category: "Sesión individual",
-    phrase: "La foto que nunca te atreviste a hacer.",
-    emphasis: "atreviste",
-    body: "Volver al lugar donde algo se rompió y mirarlo, esta vez, con la cámara en la mano.",
-    service: "sesiones",
-  },
-  {
-    id: "album-familiar",
-    category: "Sesión individual",
-    phrase: "Tu álbum familiar también habla de ti.",
-    emphasis: "habla",
-    body: "Elegir tres fotos antiguas y escuchar qué cuentan de quién fuiste y de quién eres.",
-    service: "sesiones",
-  },
-  {
-    id: "autorretrato",
-    category: "Taller",
-    phrase: "Un autorretrato sin espejo.",
-    emphasis: "sin espejo",
-    body: "Seis personas se fotografían unas a otras como se ven por dentro.",
-    service: "talleres",
-  },
-  {
-    id: "lo-cotidiano",
-    category: "Taller",
-    phrase: "Lo cotidiano también guarda emociones.",
-    emphasis: "guarda",
-    body: "Una semana fotografiando una taza, una ventana, un camino. Al final, nadie habla de objetos.",
-    service: "talleres",
-  },
-  {
-    id: "mirar-acompanar",
-    category: "Formación",
-    phrase: "Mirar para acompañar mejor.",
-    emphasis: "acompañar",
-    body: "Herramientas de fotografía terapéutica para psicólogas, educadoras y trabajadoras sociales.",
-    service: "formacion",
-  },
-  {
-    id: "la-imagen-como-pregunta",
-    category: "Formación",
-    phrase: "Una imagen es una pregunta.",
-    emphasis: "pregunta",
-    body: "Cómo usar la fotografía para abrir conversaciones que con palabras no empiezan.",
-    service: "formacion",
-  },
-];
-
 export type ContactGroup = { title: string; note: string };
 
 export const contactGroups = {
@@ -155,3 +93,302 @@ export type Testimonial = { quote: string; author: string; context?: string };
 
 // TODO: testimonios reales con permiso. Mientras esté vacío, la sección no se muestra.
 export const testimonials: Testimonial[] = [];
+
+// Puertas (servicios) y sus páginas: texto del briefing v2 (apps/engramaBriefing.md, 2026-11-08),
+// recuperado de la rama engrama-v2.
+
+export type OfferItem = { title: string; body?: string };
+
+export type Offer = { title: string; body?: string; items?: OfferItem[] };
+
+export type OfferGroup = {
+  title: string;
+  intro?: string[];
+  list?: string[];
+  items?: OfferItem[];
+  offers?: Offer[];
+  /** Texto que cierra el grupo. */
+  note?: string;
+};
+
+export type Emphasized = { text: string; emphasis: string };
+
+export type Door = {
+  slug: "organizaciones" | "personas" | "artistas";
+  /** Número de sección dentro del número de la revista. */
+  numeral: "I" | "II" | "III";
+  name: string;
+  /** Frase del briefing para la plancha de la portadilla. */
+  plate: Emphasized;
+  /** Cita a todo el ancho tras el índice de grupos. */
+  pullQuote?: Emphasized;
+  /** Titular de su página; `emphasis` va en cursiva (debe aparecer tal cual en `title`). */
+  title: string;
+  emphasis: string;
+  intro: string[];
+  /** Asunto del correo que se abre desde esta puerta. */
+  subject: string;
+  contact: string;
+  groups: OfferGroup[];
+};
+
+export const doors: Door[] = [
+  {
+    slug: "organizaciones",
+    numeral: "I",
+    name: "Organizaciones",
+    plate: {
+      text: "Escuchar, visibilizar experiencias y generar relatos colectivos.",
+      emphasis: "relatos colectivos",
+    },
+    pullQuote: {
+      text: "El resultado visual nunca es una obligación: lo importante es el proceso.",
+      emphasis: "el proceso",
+    },
+    title: "Psicología y fotografía en contextos colectivos",
+    emphasis: "contextos colectivos",
+    intro: [
+      "Colaboramos con organizaciones, entidades, centros educativos, espacios culturales y equipos profesionales que quieren incorporar la fotografía a sus proyectos de bienestar, cuidado, participación y transformación social.",
+      "Diseñamos intervenciones adaptadas al contexto y a las personas participantes, combinando herramientas psicológicas, metodologías participativas y creación visual.",
+    ],
+    subject: "Propuesta para una organización",
+    contact:
+      "¿Eres una organización que quiere incorporar la fotografía a sus proyectos de acompañamiento?",
+    groups: [
+      {
+        title: "Acompañamiento e intervención con grupos",
+        list: [
+          "Proyectos de acompañamiento a través de la fotografía en centros residenciales, centros de día y entidades sociales.",
+          "Intervenciones con personas mayores, personas con discapacidad y personas neurodivergentes.",
+          "Propuestas para personas con dificultades de comunicación o que encuentran en los lenguajes visuales otras formas de expresión.",
+          "Espacios grupales para trabajar memoria, identidad, vínculos, emociones y experiencias compartidas.",
+          "Proyectos de expresión y participación con colectivos en contextos de vulnerabilidad y exclusión.",
+        ],
+      },
+      {
+        title: "Bienestar y desarrollo de equipos",
+        list: [
+          "Talleres sobre fotografía, emociones y bienestar.",
+          "Espacios de reflexión sobre la mirada, la representación y la construcción de significado.",
+          "Experiencias fotográficas para favorecer la comunicación, la creatividad y la conexión entre equipos.",
+          "Acompañamiento a profesionales de los ámbitos social, educativo, cultural y de los cuidados.",
+        ],
+      },
+      {
+        title: "Conferencias y encuentros",
+        items: [
+          {
+            title: "Mirar lo que miramos:",
+            body: "fotografía, percepción y significado.",
+          },
+          { title: "¿Qué puede hacer una fotografía por nosotros?" },
+          { title: "La fotografía como memoria, identidad y vínculo." },
+          {
+            title: "Imágenes que cuidan:",
+            body: "posibilidades de la fotografía en contextos de acompañamiento.",
+          },
+        ],
+      },
+      {
+        title: "Proyectos participativos y culturales",
+        intro: [
+          "Diseñamos proyectos que utilizan la fotografía para escuchar, visibilizar experiencias y generar relatos colectivos.",
+          "Trabajamos con metodologías como Photovoice, la fotografía participativa y la exploración de narrativas visuales.",
+          "También colaboramos en exposiciones, publicaciones, archivos comunitarios y proyectos de mediación cultural.",
+        ],
+      },
+    ],
+  },
+  {
+    slug: "personas",
+    numeral: "II",
+    name: "Personas",
+    plate: {
+      text: "Las imágenes se convierten en un punto de partida.",
+      emphasis: "punto de partida",
+    },
+    pullQuote: {
+      text: "No es necesario tener conocimientos técnicos ni experiencia fotográfica.",
+      emphasis: "No es necesario",
+    },
+    title: "Acompañamiento a través de la fotografía",
+    emphasis: "fotografía",
+    intro: [
+      "La fotografía puede abrir una vía para explorar experiencias, emociones y aspectos de nuestra historia que a veces resultan difíciles de expresar únicamente con palabras.",
+      "En Engrama proponemos espacios individuales y grupales donde las imágenes se convierten en un punto de partida para recordar, asociar, crear, representar y compartir experiencias.",
+      "Trabajamos tanto con fotografías personales como con imágenes encontradas y fotografías creadas durante el proceso. No es necesario tener conocimientos técnicos ni experiencia fotográfica: lo importante es la relación que cada persona establece con las imágenes.",
+    ],
+    subject: "Propuestas para personas",
+    contact: "¿Buscas una propuesta para un grupo o un espacio individual?",
+    groups: [
+      {
+        title: "¿Qué podemos explorar?",
+        items: [
+          {
+            title: "Memoria e historia personal:",
+            body: "recuerdos, experiencias significativas y etapas vitales.",
+          },
+          {
+            title: "Emociones:",
+            body: "identificación, expresión y exploración de experiencias emocionales.",
+          },
+          {
+            title: "Identidad y autorrepresentación:",
+            body: "cómo nos vemos, cómo nos mostramos y cómo construimos nuestra imagen.",
+          },
+          {
+            title: "Vínculos y relaciones:",
+            body: "personas significativas, pertenencia, familia y relaciones afectivas.",
+          },
+          {
+            title: "Cambios y transiciones:",
+            body: "experiencias de pérdida, transformación y adaptación.",
+          },
+          {
+            title: "Recursos personales:",
+            body: "capacidades, autonomía, reconocimiento y nuevas perspectivas sobre uno mismo.",
+          },
+        ],
+      },
+      {
+        title: "¿Con quién trabajamos?",
+        intro: [
+          "Diseñamos propuestas adaptadas a diferentes edades, necesidades y formas de comunicación:",
+        ],
+        items: [
+          {
+            title: "Personas mayores,",
+            body: "explorando memoria autobiográfica, identidad, recuerdos y vínculos.",
+          },
+          {
+            title: "Personas con discapacidad,",
+            body: "favoreciendo la expresión personal, la autonomía y la comunicación.",
+          },
+          {
+            title: "Personas autistas y neurodivergentes,",
+            body: "adaptando las propuestas a sus formas de percepción, comunicación e interacción.",
+          },
+          {
+            title: "Personas que encuentran dificultades",
+            body: "para expresar verbalmente sus experiencias.",
+          },
+          {
+            title: "Personas que atraviesan cambios vitales,",
+            body: "procesos de adaptación o momentos de búsqueda personal.",
+          },
+          {
+            title: "Grupos",
+            body: "que quieren compartir experiencias y construir relatos colectivos.",
+          },
+        ],
+      },
+      {
+        title: "¿Cómo trabajamos con las fotografías?",
+        intro: [
+          "Cada propuesta se adapta a los objetivos y características del proceso. Algunas de las principales formas de intervención son:",
+        ],
+        offers: [
+          {
+            title: "Fotografías personales y familiares",
+            body: "Trabajamos con imágenes de la propia historia para explorar recuerdos, vínculos, identidad y experiencias significativas.",
+          },
+          {
+            title: "Fotografías proyectivas",
+            body: "Utilizamos imágenes seleccionadas para facilitar asociaciones personales, explorar emociones y abrir nuevas preguntas sobre experiencias actuales.",
+          },
+          {
+            title: "Creación fotográfica",
+            body: "Proponemos ejercicios de observación y producción de imágenes para expresar experiencias, explorar el entorno y desarrollar nuevas formas de representación.",
+          },
+          {
+            title: "Autorretrato y autorrepresentación",
+            body: "Trabajamos con diferentes formas de representarse, explorar la relación con el cuerpo y reflexionar sobre la identidad y la mirada propia y ajena.",
+          },
+          {
+            title: "Secuencias y narrativas visuales",
+            body: "Organizamos fotografías para construir relatos sobre la propia historia, los vínculos y los procesos de cambio.",
+          },
+        ],
+      },
+      {
+        title: "Propuestas y formatos",
+        offers: [
+          {
+            title: "Procesos individuales",
+            body: "Un espacio de acompañamiento personalizado en el que las fotografías y la creación visual pueden ayudar a explorar una experiencia, una pregunta o un momento vital.",
+          },
+          {
+            title: "Procesos grupales",
+            body: "Encuentros donde las imágenes facilitan la expresión, el intercambio y la construcción de significados compartidos.",
+          },
+          {
+            title: "Talleres temáticos",
+            items: [
+              { title: "Volver a mirar:", body: "memoria e identidad." },
+              { title: "Autorretrato sin cara:", body: "otras formas de representarnos." },
+              { title: "El álbum:", body: "historias, vínculos y recuerdos." },
+              { title: "Mirar de otra manera:", body: "emociones y percepción." },
+              { title: "Raíces y mudanzas:", body: "imágenes de pertenencia y transformación." },
+            ],
+          },
+          {
+            title: "Intervenciones en centros y entidades",
+            body: "Diseñamos programas específicos para residencias, centros de día, asociaciones, entidades sociales y espacios educativos, ajustando la metodología, los objetivos y la duración a cada contexto.",
+          },
+        ],
+      },
+    ],
+  },
+  {
+    slug: "artistas",
+    numeral: "III",
+    name: "Artistas",
+    plate: { text: "Una manera propia de mirar y contar.", emphasis: "mirar y contar" },
+    title: "Acompañamiento de proyectos fotográficos",
+    emphasis: "proyectos fotográficos",
+    intro: [
+      "Crear un proyecto fotográfico también implica tomar decisiones, posicionarse y encontrar una manera propia de mirar y contar.",
+      "Ofrecemos espacios de acompañamiento y reflexión para artistas y fotógrafos que quieran profundizar en sus proyectos, explorar sus motivaciones y desarrollar su lenguaje visual.",
+      "Trabajamos desde una perspectiva que combina psicología, cultura visual y práctica fotográfica.",
+    ],
+    subject: "Acompañamiento de proyecto",
+    contact: "¿Eres artista y quieres explorar tu proyecto desde otra mirada?",
+    groups: [
+      {
+        title: "Qué ofrecemos",
+        list: [
+          "Acompañamiento individual de proyectos fotográficos.",
+          "Exploración de motivaciones personales y temas recurrentes.",
+          "Desarrollo de narrativas y secuencias visuales.",
+          "Reflexión sobre la mirada, la representación y la relación con las personas fotografiadas.",
+          "Construcción del relato y del texto de artista.",
+          "Espacios colectivos de lectura y reflexión sobre proyectos.",
+        ],
+        note: "Nos interesa tanto el resultado visual como el proceso que lo hace posible.",
+      },
+    ],
+  },
+];
+
+export function getDoor(slug: Door["slug"]) {
+  const door = doors.find((d) => d.slug === slug);
+  if (!door) throw new Error(`Puerta desconocida: ${slug}`);
+  return door;
+}
+
+/** La sección que sigue a esta en el número; tras la última, ninguna (se vuelve a la portada). */
+export function nextDoor(slug: Door["slug"]) {
+  return doors[doors.findIndex((d) => d.slug === slug) + 1];
+}
+
+/** Ancla legible a partir de un título: «¿Cómo trabajamos?» → «como-trabajamos». */
+export function slugify(text: string) {
+  return text
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
+export const contactInvite = "Nos encantará conocer tu idea y pensar juntas cómo darle forma.";

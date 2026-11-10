@@ -13,11 +13,11 @@ import { whatsappHref } from "@/lib/contact";
 import { WhatsappIcon } from "../whatsapp-icon";
 
 const sections = [
-  { href: "#que-es", label: "Qué es" },
-  { href: "#piezas", label: "Piezas" },
-  { href: "#servicios", label: "Servicios" },
-  { href: "#nosotras", label: "Nosotras" },
-  { href: "#contacto", label: "Contacto" },
+  { href: "/#que-es", label: "Qué es" },
+  { href: "/#que-hacemos", label: "Qué hacemos" },
+  { href: "/#servicios", label: "Servicios" },
+  { href: "/#nosotras", label: "Nosotras" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
 /** Menú a pantalla completa, en papel, con las secciones en serif grande. */
@@ -27,7 +27,7 @@ export function Menu() {
 
   return (
     <Dialog>
-      <DialogTrigger className="label -my-3 cursor-pointer px-1 py-4 underline-offset-4 hover:underline">
+      <DialogTrigger className="label -my-3 cursor-pointer px-1 py-4 text-sm underline-offset-4 hover:underline md:text-base">
         Menú
       </DialogTrigger>
       <DialogContent
@@ -39,8 +39,10 @@ export function Menu() {
         className="top-0 left-0 flex h-dvh max-w-none translate-x-0 translate-y-0 flex-col rounded-none border-0 bg-background p-0 shadow-none sm:max-w-none"
       >
         <div className="mx-auto flex w-full max-w-[90rem] items-center justify-between px-5 py-5 md:px-10">
-          <DialogTitle className="display font-normal text-2xl italic">engrama</DialogTitle>
-          <DialogClose className="label -my-3 cursor-pointer px-1 py-4 underline-offset-4 hover:underline">
+          <DialogTitle className="display font-normal text-[2rem] italic leading-none md:text-[2.75rem]">
+            engrama
+          </DialogTitle>
+          <DialogClose className="label -my-3 cursor-pointer px-1 py-4 text-sm underline-offset-4 hover:underline md:text-base">
             Cerrar
           </DialogClose>
         </div>

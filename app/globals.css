@@ -41,6 +41,8 @@
   }
   body {
     font-feature-settings: normal;
+    /* La amapola de portada y las planchas de los carruseles se salen del ancho a propósito. */
+    overflow-x: clip;
   }
   :focus-visible {
     outline: 2px solid var(--accent);
@@ -111,111 +113,296 @@
     background: var(--foreground);
     color: var(--background);
   }
+  /* Numeral de sección: serif cursiva gigante, como el número de un pliego. */
+  .numeral {
+    display: block;
+    font-family: var(--font-heading), Georgia, serif;
+    font-style: italic;
+    font-weight: 400;
+    line-height: 0.75;
+    letter-spacing: -0.03em;
+  }
+  /* Capitular: la primera letra del primer párrafo de cada texto largo. */
+  .dropcap::first-letter {
+    float: left;
+    font-family: var(--font-heading), Georgia, serif;
+    font-size: 4.4em;
+    line-height: 0.82;
+    padding: 0.05em 0.1em 0 0;
+    color: var(--foreground);
+  }
 }
 
 /* La amapola (ya virada a coral en el archivo) es el único acento saturado de la página. */
 
-/* Piezas. Modo lista (sin JS o con reduced-motion): carril horizontal con scroll-snap. */
-.piezas {
+/* Qué hacemos. Modo lista (sin JS o con reduced-motion): una fila por puerta. */
+.servicios {
   padding-block: 8rem;
 }
-.piezas-track {
-  margin-top: 3.5rem;
-  display: flex;
-  gap: 1.25rem;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 0 1.25rem 1rem;
-  scroll-padding-inline: 1.25rem;
-  scrollbar-width: none;
-}
-.piezas-item {
-  width: 78vw;
-  flex-shrink: 0;
-  scroll-snap-align: start;
-}
-.piezas-info {
+.servicios-stage,
+.servicios-meta,
+.servicios-count,
+.servicios-rule {
   display: none;
 }
-.piezas-bar {
-  margin-top: 2rem;
+.servicios-list {
+  margin-top: 4rem;
 }
-@media (min-width: 640px) {
-  .piezas-item {
-    width: 22rem;
-  }
+.servicios-row {
+  border-top: 1px solid var(--border);
+}
+.servicios-row:last-child {
+  border-bottom: 1px solid var(--border);
+}
+.servicios-link {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: baseline;
+  gap: 0.75rem 1rem;
+  padding-block: 2rem;
+}
+.servicios-kicker,
+.servicios-title {
+  grid-column: 1 / -1;
+}
+.servicios-title {
+  max-width: 40ch;
+}
+.servicios-name {
+  font-size: 2.5rem;
 }
 @media (min-width: 768px) {
-  .piezas {
-    padding-block: 6rem;
+  .servicios {
+    padding-block: 10rem;
   }
-  .piezas-track {
-    margin-top: 5rem;
+  .servicios-list {
+    margin-top: 6rem;
+  }
+  .servicios-link {
+    grid-template-columns: repeat(12, minmax(0, 1fr));
     gap: 2rem;
-    padding-inline: 2.5rem;
-    scroll-padding-inline: 2.5rem;
+    padding-block: 3rem;
   }
-  .piezas-item {
-    width: 24rem;
+  .servicios-link > * {
+    grid-row: 1;
+  }
+  .servicios-kicker {
+    grid-column: 1 / span 2;
+  }
+  .servicios-name {
+    grid-column: 3 / span 5;
+    font-size: 4rem;
+  }
+  .servicios-title {
+    grid-column: 8 / span 4;
+  }
+  .servicios-arrow {
+    grid-column: 12;
+    justify-self: end;
   }
 }
 
-/* Modo carrusel (GSAP): la sección ocupa la pantalla y las planchas giran en 3D alrededor del centro. */
-.piezas[data-mode="carousel"] {
-  --plate-w: min(62vw, 24rem, calc((100svh - 28rem) * 0.8));
+/* Modo carrusel (GSAP): la sección ocupa la pantalla; planchas apiladas en 3D en vertical,
+   lista que se desplaza a la derecha, ficha a la izquierda y contador abajo, como huyml.co. */
+.servicios[data-mode="carousel"] {
+  --plate-h: min(32svh, 17rem);
   height: 100svh;
-  padding-block: 4.5rem 6.5rem;
-  display: flex;
-  flex-direction: column;
+  padding-block: 5rem 1.5rem;
+  display: grid;
+  /* En móvil: contador junto al título y aire abajo para el botón fijo de escribir. */
+  padding-bottom: 6rem;
+  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-rows: auto minmax(0, 1fr) 8.5rem;
+  grid-template-areas: "head count" "stage stage" "list list";
+  gap: 1rem;
   overflow: hidden;
 }
-.piezas[data-mode="carousel"] .piezas-stage {
-  position: relative;
-  flex: 1;
-  min-height: 0;
-  perspective: 1400px;
+.servicios[data-mode="carousel"] .servicios-head {
+  grid-area: head;
 }
-.piezas[data-mode="carousel"] .piezas-track {
+.servicios[data-mode="carousel"] .servicios-head h2 {
+  font-size: 2.75rem;
+}
+.servicios[data-mode="carousel"] .servicios-stage {
+  grid-area: stage;
+  display: block;
+  position: relative;
+  perspective: 1400px;
+  overflow: hidden;
+}
+.servicios[data-mode="carousel"] .servicios-track {
   position: absolute;
   inset: 0;
-  margin: 0;
-  padding: 0;
-  display: block;
-  overflow: visible;
   transform-style: preserve-3d;
 }
-.piezas[data-mode="carousel"] .piezas-item {
+.servicios[data-mode="carousel"] .servicios-plate {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: var(--plate-w);
-  margin-top: calc(var(--plate-w) * -0.625);
-  margin-left: calc(var(--plate-w) / -2);
+  width: calc(var(--plate-h) * 0.8);
+  margin-top: calc(var(--plate-h) / -2);
+  margin-left: calc(var(--plate-h) * -0.4);
 }
-.piezas[data-mode="carousel"] .piezas-caption {
-  display: none;
+.servicios[data-mode="carousel"] .servicios-window {
+  grid-area: list;
+  position: relative;
+  overflow: hidden;
+  mask-image: linear-gradient(transparent, #000 22%, #000 78%, transparent);
 }
-.piezas[data-mode="carousel"] .piezas-info {
-  display: block;
-  min-height: 7.5rem;
-  padding: 1.25rem 1.25rem 0;
+.servicios[data-mode="carousel"] .servicios-list {
+  position: absolute;
+  inset: 0 0 auto;
+  margin: 0;
+}
+.servicios[data-mode="carousel"] .servicios-row {
+  border: 0;
+}
+.servicios[data-mode="carousel"] .servicios-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding-block: 1.25rem;
   text-align: center;
 }
-.piezas[data-mode="carousel"] .piezas-bar {
-  margin-top: 1rem;
+.servicios[data-mode="carousel"] .servicios-name {
+  font-size: 2rem;
+}
+.servicios[data-mode="carousel"] .servicios-rule {
+  display: block;
+  width: 0.75rem;
+  height: 1px;
+  background: var(--foreground);
+}
+.servicios[data-mode="carousel"] .servicios-title {
+  max-width: 32ch;
+}
+.servicios[data-mode="carousel"] .servicios-arrow {
+  display: none;
+}
+.servicios[data-mode="carousel"] .servicios-count {
+  grid-area: count;
+  display: flex;
+  align-items: baseline;
+  gap: 0.75rem;
 }
 @media (max-width: 767px) {
-  .piezas[data-mode="carousel"] .piezas-intro {
-    display: none;
-  }
-  .piezas[data-mode="carousel"] h2 {
-    font-size: 2.75rem;
+  .servicios[data-mode="carousel"] .servicios-count .numeral {
+    font-size: 3rem;
   }
 }
 @media (min-width: 768px) {
-  .piezas[data-mode="carousel"] {
-    --plate-w: min(24rem, calc((100svh - 25rem) * 0.8));
-    padding-block: 5rem 2.5rem;
+  .servicios[data-mode="carousel"] {
+    --plate-h: min(56svh, 34rem);
+    padding-block: 6rem 2.5rem;
+    grid-template-columns: minmax(0, 1fr) calc(var(--plate-h) * 0.8 + 8rem) minmax(0, 1fr);
+    grid-template-rows: auto minmax(0, 1fr) auto;
+    grid-template-areas:
+      "head stage list"
+      "meta stage list"
+      "count stage list";
+    column-gap: 3rem;
+  }
+  .servicios[data-mode="carousel"] .servicios-head h2 {
+    font-size: 4.5rem;
+  }
+  .servicios[data-mode="carousel"] .servicios-stage {
+    overflow: visible;
+  }
+  .servicios[data-mode="carousel"] .servicios-count {
+    align-self: end;
+  }
+  .servicios[data-mode="carousel"] .servicios-meta {
+    grid-area: meta;
+    display: block;
+    align-self: center;
+  }
+  .servicios[data-mode="carousel"] .servicios-window {
+    height: 100%;
+    mask-image: linear-gradient(transparent, #000 30%, #000 70%, transparent);
+  }
+  .servicios[data-mode="carousel"] .servicios-name {
+    font-size: 2.75rem;
+  }
+}
+
+/* Portadilla de una puerta: entra subiendo y enfocándose, a la vez que se retira la cortina. */
+@media (prefers-reduced-motion: no-preference) {
+  .door-enter > * {
+    animation: door-enter 900ms var(--ease-out-expo) both;
+    animation-delay: calc(350ms + var(--i, 0) * 110ms);
+  }
+  @keyframes door-enter {
+    from {
+      opacity: 0;
+      translate: 0 3rem;
+      filter: blur(8px);
+    }
+  }
+}
+
+/* Serie de planchas: carril horizontal en móvil; en escritorio, tres columnas desfasadas como un pliego. */
+.plate-series {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+  margin-inline: -1.25rem;
+  padding: 0 1.25rem 0.5rem;
+  scroll-padding-inline: 1.25rem;
+}
+.plate-series > li {
+  width: 68vw;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+}
+@media (min-width: 768px) {
+  .plate-series {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4rem 2rem;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+  }
+  .plate-series > li {
+    width: auto;
+  }
+  .plate-series > li:nth-child(3n + 2) {
+    margin-top: 10rem;
+  }
+  .plate-series > li:nth-child(3n + 3) {
+    margin-top: 4rem;
+  }
+}
+
+/* Índice desplegable de las puertas: la fila se abre con un despliegue suave y el + gira a ×. */
+.door-index {
+  interpolate-size: allow-keywords;
+}
+.door-index summary {
+  list-style: none;
+}
+.door-index summary::-webkit-details-marker {
+  display: none;
+}
+.door-index-icon {
+  transition: rotate 500ms var(--ease-out-expo);
+}
+.door-index details[open] .door-index-icon {
+  rotate: 45deg;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .door-index details::details-content {
+    block-size: 0;
+    overflow: hidden;
+    transition:
+      block-size 600ms var(--ease-out-expo),
+      content-visibility 600ms allow-discrete;
+  }
+  .door-index details[open]::details-content {
+    block-size: auto;
   }
 }
 
