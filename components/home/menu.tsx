@@ -13,9 +13,11 @@ import { whatsappHref } from "@/lib/contact";
 import { WhatsappIcon } from "../whatsapp-icon";
 
 const sections = [
-  { href: "/#que-es", label: "Qué es" },
+  { href: "/#que-es", label: "Engrama" },
+  { href: "/#por-que", label: "¿Por qué Engrama?" },
   { href: "/#que-hacemos", label: "Qué hacemos" },
-  { href: "/#servicios", label: "Servicios" },
+  { href: "/#como-trabajamos", label: "Cómo trabajamos" },
+  { href: "/fototerapia", label: "Fototerapia" },
   { href: "/#nosotras", label: "Nosotras" },
   { href: "/#contacto", label: "Contacto" },
 ];
@@ -60,12 +62,12 @@ export function Menu() {
                     onClick={() => {
                       jumped.current = true;
                     }}
-                    className="flex items-baseline gap-6 py-3 no-underline transition-colors hover:text-muted-foreground md:py-4"
+                    className="flex items-baseline gap-6 py-[min(0.75rem,1.4svh)] no-underline transition-colors hover:text-muted-foreground md:py-[min(1rem,1.6svh)]"
                   >
                     <span className="label text-muted-foreground tabular-nums">
                       {String(i + 1).padStart(2, "0")}
                     </span>
-                    <span className="display text-[2.75rem] leading-none md:text-[5rem]">
+                    <span className="display text-[clamp(2rem,5.5svh,2.75rem)] leading-none md:text-[clamp(2.5rem,7svh,5rem)]">
                       {s.label}
                     </span>
                   </a>
@@ -75,7 +77,7 @@ export function Menu() {
           </ol>
         </nav>
         <div className="mx-auto flex w-full max-w-[90rem] flex-col gap-4 px-5 pt-6 pb-[max(1.5rem,env(safe-area-inset-bottom))] text-muted-foreground text-sm md:flex-row md:items-baseline md:justify-between md:px-10 md:pb-10">
-          <p>Bianca y Laura · Psicólogas colegiadas · Por toda España y online</p>
+          <p>Bianca Re y Laura van Berwaer · Psicología y fotografía · Por toda España y online</p>
           <a href={whatsappHref()} className="pill pill-solid self-start">
             <WhatsappIcon className="size-5" />
             Escríbenos por WhatsApp

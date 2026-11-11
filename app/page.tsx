@@ -3,12 +3,13 @@ import { Closing } from "@/components/home/closing";
 import { Doors } from "@/components/home/doors";
 import { Footer } from "@/components/home/footer";
 import { Hero } from "@/components/home/hero";
-import { IndexList } from "@/components/home/index-list";
 import { Masthead } from "@/components/home/masthead";
+import { Method } from "@/components/home/method";
 import { StickyCta } from "@/components/home/sticky-cta";
 import { Team } from "@/components/home/team";
 import { Testimonials } from "@/components/home/testimonials";
 import { Where } from "@/components/home/where";
+import { Why } from "@/components/home/why";
 import { siteUrl } from "@/lib/contact";
 
 const jsonLd = {
@@ -16,10 +17,11 @@ const jsonLd = {
   "@type": "ProfessionalService",
   name: "Engrama",
   description:
-    "Fotografía terapéutica con psicólogas colegiadas: sesiones individuales, talleres grupales y formación.",
+    "Psicología y fotografía. Mirar, expresar y dar sentido a través de las imágenes: propuestas para personas, grupos, organizaciones y artistas.",
   url: siteUrl,
   areaServed: "ES",
   image: `${siteUrl}/img/og.jpg`,
+  email: "engramafoto@gmail.com",
 };
 
 export default function Home() {
@@ -29,8 +31,9 @@ export default function Home() {
       <main>
         <Hero />
         <About />
+        <Why />
         <Doors />
-        <IndexList />
+        <Method />
         <Team />
         <Testimonials />
         <Where />

@@ -4,6 +4,7 @@ import gsap from "gsap";
 import { ArrowUpRight } from "lucide-react";
 import Link from "next/link";
 import { useRef, useState } from "react";
+import { sectionImages } from "@/content/section-images";
 import { doors } from "@/content/site";
 import { useScrollStack } from "@/lib/use-scroll-stack";
 import { TextPlate } from "../text-plate";
@@ -86,7 +87,12 @@ export function Doors() {
               data-plancha
               className="servicios-plate no-underline"
             >
-              <TextPlate phrase={d.plate.text} emphasis={d.plate.emphasis} />
+              <TextPlate
+                phrase={d.plate.text}
+                emphasis={d.plate.emphasis}
+                image={sectionImages[`puerta-${d.slug}`]}
+                decorative
+              />
             </Link>
           ))}
         </div>

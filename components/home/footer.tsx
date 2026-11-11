@@ -3,11 +3,11 @@ import { Clock } from "./clock";
 
 export function Footer() {
   return (
-    <footer className="mx-auto grid max-w-[90rem] gap-8 border-border border-t px-5 pt-10 pb-28 text-sm md:grid-cols-12 md:items-baseline md:gap-8 md:px-10 md:pb-10">
+    <footer className="mx-auto grid max-w-[90rem] gap-8 border-border border-t px-5 pt-10 pb-28 text-sm md:h-[var(--footer-h)] md:grid-cols-12 md:content-center md:items-baseline md:gap-8 md:px-10 md:py-0">
       <p className="display text-2xl italic md:col-span-3">engrama</p>
       <div className="md:col-span-3">
-        <p className="label text-muted-foreground">Psicólogas independientes</p>
-        <p className="mt-1">Trabajamos por toda España</p>
+        <p className="label text-muted-foreground">Psicología y fotografía</p>
+        <p className="mt-1">Por toda España y online</p>
       </div>
       <div className="md:col-span-2">
         <p className="label text-muted-foreground">Madrid</p>

@@ -9,7 +9,7 @@ export function NextSection({ door }: { door: Door }) {
   return (
     <Link
       href={next ? `/${next.slug}` : "/"}
-      className="group mx-auto block max-w-[90rem] px-5 py-16 no-underline md:px-10 md:py-24"
+      className="group mx-auto block w-full max-w-[90rem] px-5 py-10 no-underline md:px-10 md:py-10"
     >
       <span className="label text-muted-foreground">
         {next ? "Sección siguiente" : "Fin del número"}
@@ -19,12 +19,12 @@ export function NextSection({ door }: { door: Door }) {
           {next && (
             <span
               aria-hidden="true"
-              className="numeral text-[3.5rem] text-muted-foreground md:text-[7rem]"
+              className="numeral text-[3.5rem] text-muted-foreground md:text-[clamp(3.5rem,9svh,6rem)]"
             >
               {next.numeral}
             </span>
           )}
-          <span className="caption text-[3rem] transition-colors duration-300 group-hover:text-muted-foreground md:text-[clamp(4.5rem,9vw,8rem)]">
+          <span className="caption text-[3rem] transition-colors duration-300 group-hover:text-muted-foreground md:text-[clamp(3.5rem,min(7vw,11svh),7rem)]">
             {next ? next.name : "Volver a la portada"}
           </span>
         </span>

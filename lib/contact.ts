@@ -25,14 +25,12 @@ export const siteUrl = env.NEXT_PUBLIC_SITE_URL;
 export const phone = env.NEXT_PUBLIC_PHONE ?? null;
 export const phoneHref = phone ? `tel:${phone.replace(/\s/g, "")}` : "#contacto";
 
-export function whatsappHref(
-  message = "Hola, me gustaría saber más sobre la fotografía terapéutica.",
-) {
+export function whatsappHref(message = "Hola, me gustaría saber más sobre Engrama.") {
   if (!env.NEXT_PUBLIC_WHATSAPP) return "#contacto";
   return `https://wa.me/${env.NEXT_PUBLIC_WHATSAPP}?text=${encodeURIComponent(message)}`;
 }
 
-/** Correo de Engrama (briefing v2): lo usan las páginas de servicio. */
+/** Correo de Engrama: lo usan el cierre de la portada y las páginas de cada sección. */
 export const email = "engramafoto@gmail.com";
 
 export function mailHref(subject?: string) {

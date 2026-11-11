@@ -14,17 +14,17 @@ const heading = Instrument_Serif({
 const brand = Hanken_Grotesk({ subsets: ["latin"], variable: "--font-brand" });
 
 const description =
-  "Psicólogas colegiadas que trabajan con fotografía terapéutica: sesiones individuales, talleres grupales y formación. Por toda España y online.";
+  "Psicología y fotografía. Mirar, expresar y dar sentido a través de las imágenes: acompañamiento, exploración personal y creación colectiva para personas, grupos, organizaciones y artistas.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: { default: "Engrama · Fotografía terapéutica", template: "%s · Engrama" },
+  title: { default: "Engrama · Psicología y fotografía", template: "%s · Engrama" },
   description,
   openGraph: {
     type: "website",
     locale: "es_ES",
     siteName: "Engrama",
-    title: "Engrama · Fotografía terapéutica",
+    title: "Engrama · Psicología y fotografía",
     description,
     images: [
       {

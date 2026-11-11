@@ -3,7 +3,7 @@ import { whatsappHref } from "@/lib/contact";
 import { Menu } from "./menu";
 
 /** `folio`: el pie de cabecera de la página, como el folio de una revista. */
-export function Masthead({ folio = "Vol. I · Fotografía terapéutica" }: { folio?: string }) {
+export function Masthead({ folio = "Vol. I · Psicología y fotografía" }: { folio?: string }) {
   return (
     <header className="absolute inset-x-0 top-0 z-20 mx-auto flex max-w-[90rem] items-center justify-between px-5 py-5 md:px-10">
       <Link
