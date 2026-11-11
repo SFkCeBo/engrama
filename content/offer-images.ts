@@ -134,6 +134,32 @@ export const offerImages: Record<string, OfferImage> = {
   "espacios-colectivos-de-lectura-y-reflexion-sobre-proyectos": {
     alt: "Un libro de fotografía abierto con retratos en blanco y negro",
   },
+  // Fototerapia · Dos campos de práctica relacionados
+  fototerapia: {
+    alt: "Una psicóloga toma notas, sonriente, mientras escucha a una mujer sentada frente a ella",
+  },
+  "fotografia-terapeutica": {
+    alt: "Una persona fotografía un valle al atardecer desde lo alto de una colina",
+  },
+  // Fototerapia · ¿Qué ocurre cuando trabajamos con una fotografía?
+  observar: {
+    alt: "Una mano sostiene una lupa en la que se ve, invertido, el paisaje del fondo",
+  },
+  asociar: {
+    alt: "Un dedo señala una foto antigua en un álbum abierto sobre las rodillas",
+  },
+  narrar: {
+    alt: "Fotografías impresas esparcidas sobre una mesa: un perro, una montaña, una persona con los brazos abiertos",
+  },
+  representar: {
+    alt: "Una mujer se fotografía a sí misma en un espejo redondo",
+  },
+  crear: {
+    alt: "Una persona hace una foto con una cámara instantánea entre árboles de otoño",
+  },
+  compartir: {
+    alt: "Dos personas sonríen mientras miran juntas una hoja llena de fotografías",
+  },
 };
 
 /** Nombre de archivo de una pieza: su título como ancla, recortado a 60 caracteres. */

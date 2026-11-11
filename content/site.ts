@@ -442,7 +442,7 @@ export function nextDoor(slug: Door["slug"]) {
 
 /**
  * Fototerapia y fotografía terapéutica: sección IV del número, con la misma maqueta que las
- * puertas pero fuera de «Qué hacemos». Sus planchas no llevan foto (tonos de papel y noche).
+ * puertas pero fuera de «Qué hacemos». Las fotos de sus planchas están en content/offer-images.ts.
  */
 export const phototherapy: Door = {
   slug: "fototerapia",

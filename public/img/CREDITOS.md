@@ -80,3 +80,18 @@ Retratos reales de Bianca y Laura, entregados por Engrama el 2026-11-11. No son 
 |---|---|
 | equipo/bianca.webp | Bianca |
 | equipo/laura.webp | Laura |
+
+## Fototerapia (public/img/oferta/, piezas de /fototerapia)
+
+Descargadas de Unsplash el 2026-11-11 con el filtro de licencia libre (Licencia Unsplash; ninguna de Unsplash+). Provisionales: TODO sustituir por fotos propias. Mismo proceso que el resto de «Qué ofrecemos» (900×1125, crop=entropy, saturación 0.42, matriz cálida, WebP calidad 76).
+
+| Archivo | Pieza | Fuente | Autor |
+|---|---|---|---|
+| oferta/fototerapia.webp | Fototerapia · Fototerapia | https://unsplash.com/photos/Eauz-pmPyG8 | HLS 44 |
+| oferta/fotografia-terapeutica.webp | Fototerapia · Fotografía terapéutica | https://unsplash.com/photos/XTPdgUpvqmE | Laura V. |
+| oferta/observar.webp | Fototerapia · Observar | https://unsplash.com/photos/RO4asK2QWTw | Juan Parra |
+| oferta/asociar.webp | Fototerapia · Asociar | https://unsplash.com/photos/XZuU2Di3x4w | Thai Nguyen Anh |
+| oferta/narrar.webp | Fototerapia · Narrar | https://unsplash.com/photos/yj5vVBO7NZ8 | sarandy westfall |
+| oferta/representar.webp | Fototerapia · Representar | https://unsplash.com/photos/_EvhuH9V6jA | Christina Radevich |
+| oferta/crear.webp | Fototerapia · Crear | https://unsplash.com/photos/BYUrbt2ZxJI | Enfocus Collective |
+| oferta/compartir.webp | Fototerapia · Compartir | https://unsplash.com/photos/uiazO-WGSqM | Alexander Mass |

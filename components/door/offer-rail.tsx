@@ -204,7 +204,7 @@ function Group({ group, gi }: { group: OfferGroup; gi: number }) {
       aria-labelledby={`a-${gi}`}
       className={cn(
         "screen mx-auto w-full max-w-[90rem] px-5 pt-8 pb-28 [--ph:min(22svh,16rem)] md:px-10 md:py-10 md:[--ph:min(36svh,26rem)]",
-        long && "max-md:snap-align-none",
+        long && "max-md:snap-align-none md:[--ph:min(28svh,20rem)]",
       )}
     >
       <div
