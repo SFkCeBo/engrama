@@ -33,3 +33,10 @@ Landing de Engrama: dos psicólogas colegiadas que trabajan con fotografía tera
 - Psicólogas: Bianca y Laura. Los textos de piezas, bios y contacto de `content/site.ts` son inventados y aprobados (2026-10-14); se pueden reescribir.
 - Imágenes, testimonios y números de colegiada: solo reales. Mientras no los haya, usa marcadores `TODO`. No inventes credenciales.
 - Estructura inspirada en huyml.co (portada con ficha, piezas numeradas en carril horizontal, índice, contacto por intención, pie con reloj), con la marca de Engrama.
+
+## Flujo de desarrollo (ECC)
+Este repo usa [ECC](https://github.com/affaan-m/ECC). Reglas en `.claude/rules/ecc/` (common + typescript + react + web, copiadas de ECC @ d2ef268). Gestor de paquetes: `pnpm` (`.claude/package-manager.json`).
+- Tarea nueva: `/ecc:plan "<tarea>"` → skill `tdd-workflow` → `/ecc:code-review` → `/ecc:security-scan` antes de producción.
+- Build roto: `/ecc:build-fix`.
+- Si una regla de ECC choca con lo que dice este archivo, manda este archivo.
+- Para actualizar las reglas: `git -C ~/ecc pull` y volver a copiar las carpetas enteras (no aplanar).
