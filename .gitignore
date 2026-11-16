@@ -11,12 +11,5 @@ next-env.d.ts
 .vercel
 .netlify
 
-# Claude Code: binario de impeccable (se descarga solo) y ajustes locales
-.claude/skills/impeccable/scripts/bin/
+# Claude Code: ajustes locales
 .claude/settings.local.json
-
-# impeccable: capturas y bocetos de trabajo (no se publican)
-**/.impeccable/review/
-**/.impeccable/decision/
-**/.impeccable/build/
-**/.impeccable/questions/
