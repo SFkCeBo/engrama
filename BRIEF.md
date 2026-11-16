@@ -63,7 +63,7 @@ landing
 - **Marca existente (logo, colores, fuentes):** ninguna todavía; identidad propuesta desde cero. Sin fotos propias: imágenes provisionales marcadas como TODO.
 - **Modo oscuro:** <!-- sí | no | solo oscuro -->
 - **Densidad / animación:** <!-- aireado-editorial | equilibrado | denso-datos ; animación sutil | expresiva -->
-> Por defecto: lo decide `/impeccable shape` a partir del resto del brief; modo claro + oscuro; densidad equilibrada; animación sutil y respetando reduced-motion.
+> Por defecto: se decide en el plan (`/ecc:plan`) a partir del resto del brief y de `DESIGN.md`; modo claro + oscuro; densidad equilibrada; animación sutil y respetando reduced-motion.
 
 ## 11. Copy y tono de voz
 <!-- ¿Tú, usted, vosotros? ¿Cercano, técnico, institucional? Palabras prohibidas. -->
@@ -104,7 +104,7 @@ landing
 - [ ] Nombres y números de colegiada en `content/site.ts`; datos del titular en las páginas legales
 - [ ] Testimonios reales con permiso en `content/site.ts`
 - [ ] Publicada en producción
-> Por defecto: MVP funcionando en producción, `pnpm check` en verde y `/impeccable audit` sin problemas críticos.
+> Por defecto: MVP funcionando en producción, `pnpm check` en verde y `/ecc:code-review` sin problemas críticos.
 
 ## 20. Notas y preguntas abiertas
 -

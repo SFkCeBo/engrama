@@ -6,7 +6,7 @@ Stack: Next.js 16 (App Router, RSC), React 19, Tailwind v4, TypeScript 7 strict,
 1. Node 24 y `npm i -g pnpm` (no uses corepack: falla con pnpm 12).
 2. `git clone` del repo y `pnpm install`.
 3. Copia `.env.example` a `.env.local` y rellena lo que haga falta.
-4. `npx impeccable install --providers=claude --scope=project` (el binario de impeccable no se versiona).
+4. En Claude Code, instala ECC: `/plugin marketplace add https://github.com/affaan-m/ECC` y `/plugin install ecc@ecc`.
 
 ## Comandos
 - Dev: `pnpm dev` (:3000). Build: `pnpm build` (genera `out/`).
@@ -17,10 +17,10 @@ Stack: Next.js 16 (App Router, RSC), React 19, Tailwind v4, TypeScript 7 strict,
 - UI: componentes shadcn en `components/ui/` (ya están `button` y `dialog`). Para añadir otro: `pnpm dlx shadcn@latest add <comp>` y revisa que `cn` venga de `@/lib/utils`.
 - Tokens base en `app/tokens.css`; la marca los sobrescribe en `app/globals.css`. Sin colores ni tamaños arbitrarios en el JSX.
 - Valida con zod los datos externos (env, fetch).
-- Diseño: `/impeccable shape` antes de construir y `/impeccable audit` o `polish` al terminar. Antes de dar algo por terminado, ejecuta la skill `ship-check`.
+- Flujo: `/ecc:plan` antes de construir y `/ecc:code-review` al terminar (ver «Flujo de desarrollo (ECC)»). Antes de dar algo por terminado, ejecuta la skill `ship-check`.
 - Marca: sobrescribe tokens en el CSS global de la app; no metas colores sueltos en el JSX.
 - Alias: `@/*` → raíz de la app.
-- Contexto de diseño: `PRODUCT.md` (qué y para quién) y `DESIGN.md` (sistema visual), gestionados por impeccable.
+- Contexto de diseño: `PRODUCT.md` (qué y para quién) y `DESIGN.md` (sistema visual). Se mantienen a mano: si cambias tokens o la dirección visual, actualiza `DESIGN.md` en el mismo cambio.
 
 ## Proyecto
 Landing de Engrama: dos psicólogas colegiadas que trabajan con fotografía terapéutica (sesiones, talleres y formación), itinerantes por España, en presencial y online.
@@ -33,3 +33,10 @@ Landing de Engrama: dos psicólogas colegiadas que trabajan con fotografía tera
 - Psicólogas: Bianca y Laura. Los textos de piezas, bios y contacto de `content/site.ts` son inventados y aprobados (2026-10-14); se pueden reescribir.
 - Imágenes, testimonios y números de colegiada: solo reales. Mientras no los haya, usa marcadores `TODO`. No inventes credenciales.
 - Estructura inspirada en huyml.co (portada con ficha, piezas numeradas en carril horizontal, índice, contacto por intención, pie con reloj), con la marca de Engrama.
+
+## Flujo de desarrollo (ECC)
+Este repo usa [ECC](https://github.com/affaan-m/ECC). Reglas en `.claude/rules/ecc/` (common + typescript + react + web, copiadas de ECC @ d2ef268). Gestor de paquetes: `pnpm` (`.claude/package-manager.json`).
+- Tarea nueva: `/ecc:plan "<tarea>"` → skill `tdd-workflow` → `/ecc:code-review` → `/ecc:security-scan` antes de producción.
+- Build roto: `/ecc:build-fix`.
+- Si una regla de ECC choca con lo que dice este archivo, manda este archivo.
+- Para actualizar las reglas: `git -C ~/ecc pull` y volver a copiar las carpetas enteras (no aplanar).
